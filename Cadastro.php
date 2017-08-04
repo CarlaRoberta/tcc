@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body><header>
+    <body>
         <nav class="nav navbar-default">  
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -28,7 +28,7 @@
                     </ul>
                 </div>
             </div>
-        </nav></header> 
+        </nav> 
         <div class="container">
             <form class="form-horizontal">
                 <div class="form-group">
