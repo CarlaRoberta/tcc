@@ -25,7 +25,7 @@
                         <ul class="nav navbar-nav"> 
                             <li> <a href="Controle.php" >Controle</a> </li>
                             <li> <a href="Cadastro.php">Cadastro</a> </li>
-                            <li> <a href="#Contato.php">Contato</a> </li>
+                            <li> <a href="Contato.php">Contato</a> </li>
                         </ul>
                     </div>
                 </div>

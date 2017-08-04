@@ -18,13 +18,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="Home.php" >Home</a>
+                     <a href="Cadastro.php" class="navbar-brand" >Cadastro</a>
                 </div>
                 <div id="nav" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav"> 
+                        <li><a href="Home.php" >Home</a> </li>
                         <li> <a href="Controle.php" >Controle</a> </li>
-                        <li> <a href="Cadastro.php">Cadastro</a> </li>
-                        <li> <a href="#Contato.php">Contato</a> </li>
+                        <li> <a href="Contato.php">Contato</a> </li>
                     </ul>
                 </div>
             </div>
@@ -61,9 +61,9 @@
                 <p>Email: Carlarobertaoliveira64@gmail.com</p>
                 <p>Email: Joao.votu.jv@gmail.com</p><br>
             </address>
-        </div>
-        <script src="jquery/jquery-1.12.4.min.js"></script>
-        <script> window.jQuery || document.write('<script src="../../assets/js/vendor/jquery/jquery.min.js"><\/script>')</script>
+         </div>
+        <script src="jquery-1.12.4.min.js"></script>
+        <script> window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
         <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>
     </body>
 </html>
