@@ -34,21 +34,31 @@
                 <h1>Controle Alternativo de Condicionadores de Ar</h1>
                 <p>Facilidade e Comodidade</p>
             </div>
+            <div class="icones">
+                <img style="max-width:9%; min-width: 9%;" src="img/Instagram.png" alt=""/>
+                <img style="max-width:9%; min-width: 9%;" src="img/facebook.png" alt=""/>
+                <img style="max-width:9%; min-width: 9%;" src="img/gmail.png" alt=""/>
+                <img style="max-width:9%; min-width: 9%;" src="img/whatsap.png" alt=""/>
+            </div>
         </header>
         <div class="container">
 
         </div>
         <div class="fim">
-            <address>
-                <strong>CONTROLE ALTERNATIVO DE CONDICIONADORES DE AR A PARTIR DE SISTEMA COMPUTADORIZADO</strong><br>
-                Instituto Federal, Votuporanga<br>
-            </address>
-
-            <address>
-                <strong>Contato</strong><br>
-                <p>Email: Carlarobertaoliveira64@gmail.com</p>
-                <p>Email: Joao.votu.jv@gmail.com</p><br>
-            </address>
+            <div class="rodape_esquerda">
+                <address>
+                    <strong>CONTROLE ALTERNATIVO DE CONDICIONADORES DE AR A PARTIR DE SISTEMA COMPUTADORIZADO</strong><br>
+                    Instituto Federal, Votuporanga<br> 
+                </address>
+                <address>
+                    <strong>Contato</strong><br>
+                    <p>Email: Carlarobertaoliveira64@gmail.com</p>
+                    <p>Email: Joao.votu.jv@gmail.com</p><br>
+                </address>  
+            </div>
+            <div class="img_rodape">
+                <img style="width: 40%; height: 40%;" src="img/logo.png" alt=""/>    
+            </div>
         </div>
         <script src="jquery-1.12.4.min.js"></script>
         <script> window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
