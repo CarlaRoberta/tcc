@@ -9,27 +9,7 @@
     </head>
     <body>
         <header>
-            <nav class="nav navbar-default">  
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                data-target="#nav" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a href="Cadastro.php" class="navbar-brand" >Cadastro</a>
-                    </div>
-                    <div id="nav" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav"> 
-                            <li><a href="Home.php" >Home</a> </li>
-                            <li> <a href="Controle.php" >Controle</a> </li>
-                            <li> <a href="Contato.php">Contato</a> </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav> 
+            <?php require './inc_menu.php'; ?>
         </header>
         <div class="container">
             <form class="form-horizontal">
@@ -52,24 +32,6 @@
                 </div>
             </form>
         </div>
-        <div class="fim">
-            <div class="rodape_esquerda">
-                <address>
-                    <strong>CONTROLE ALTERNATIVO DE CONDICIONADORES DE AR A PARTIR DE SISTEMA COMPUTADORIZADO</strong><br>
-                    Instituto Federal, Votuporanga<br> 
-                </address>
-                <address>
-                    <strong>Contato</strong><br>
-                    <p>Email: Carlarobertaoliveira64@gmail.com</p>
-                    <p>Email: Joao.votu.jv@gmail.com</p><br>
-                </address>  
-            </div>
-            <div class="img_rodape">
-                <img style="width: 40%; height: 40%;" src="img/logo.png" alt=""/>    
-            </div>
-        </div>
-        <script src="jquery-1.12.4.min.js"></script>
-        <script> window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>
-    </body>
-</html>
+        <?php
+        require './inc_rodape.php';
+        ?>
