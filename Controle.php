@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css.css" rel="stylesheet" type="text/css"/>
-    </head>
-    <body>
         <header>
             <?php require './inc_menu.php'; ?>
         </header>
@@ -23,24 +13,24 @@
                 </ul>
             </div>
             <div class="form-group">
-                <div class="col-sm-2">
-                    <select  class="form-control input-sm">
-                        <option>Predio</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                <label for="sala" class="col-sm-1 control-label">Sala</label>
+                <div class="input-group">
+                    <select id="sala" name="sala" required class="form-control">
+                        <option value="ND">selecione</option>
+                        <option value=""><?php echo '';?></option>
+                        <option value=""><?php echo '';?></option>
+                        <option value=""><?php echo '';?></option>
                     </select>
                 </div>
-                <div class="col-sm-2">
-                    <select  class="form-control input-sm" >
-                        <option>Sala</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+            </div>
+            <div class="form-group">
+                <label for="predio" class="col-sm-1 control-label">Predio</label>
+                <div class="input-group">
+                    <select  id="predio" name="predio" required class="form-control">
+                        <option value="ND">selecione</option>
+                        <option value=""><?php echo '';?></option>
+                        <option value=""><?php echo '';?></option>
+                        <option value=""><?php echo '';?></option>
                     </select>
                 </div>
             </div>

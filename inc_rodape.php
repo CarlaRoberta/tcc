@@ -12,7 +12,7 @@
             </address>  
         </div>
         <div class="img_rodape">
-            <img style="width: 40%; height: 40%;" src="img/logo.png" alt=""/>    
+            <img style="width: 40%; height: 25%;" src="img/logo.png" alt=""/>    
         </div>
     </div>
 </footer>
