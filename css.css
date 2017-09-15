@@ -83,7 +83,7 @@ h1{
 }
 .grupo1{
     border-radius: 5px;
-    background-color: #ce8483;
+     background-color: rgba(0,0,0, 0.3);
     height: 30%;
     width:30%;
     padding: 2%;
@@ -91,7 +91,7 @@ h1{
 }
 .grupo2{
     border-radius: 5px;
-    background-color: tan;
+    background-color: rgba(0,0,0, 0.2);
     padding: 2%;
     height: 30%;
     float: left;
@@ -101,9 +101,8 @@ h1{
 .grupo3{
     float: left;
     border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 2%;
-    
+    background-color: rgba(0,0,0, 0.1);
+    padding: 2%;   
     height:30%;
     width: 35%;
 }

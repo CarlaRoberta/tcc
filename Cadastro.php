@@ -31,7 +31,7 @@
         </div>   
         <div class="form-group">
             <div class="grupo2">
-                <label for="codigodeindentificacao" class="col-sm-4 control-label">Codigo de Indentificação:</label>
+                <label for="codigodeindentificacao" class="col-sm-5 control-label">Condicionadores:</label>
                 <div class="input-group col-sm-5">
                     <input type="text" name="codigodeindentificacao" id="codigodeindentificacao" class="form-control">
                 </div>
@@ -39,18 +39,26 @@
         </div>
         <div class="form-group">
             <div class="grupo3">
-                <label for="nome" class="col-sm-3 control-label">Nome do Usuário:</label>
+                <label for="nome" class="col-sm-3 control-label">Usuário:</label>
                 <div class="input-group col-sm-5">
                     <input type="text" name="nome" id="nome" class="form-control">
-                </div>
+                </div><br>
                 <label for="senha"class="col-sm-3 control-label"> Senha:</label>
                 <div class="input-group col-sm-5">
                     <input   type="password" name="senha" id="senha" class="form-control">
                 </div>
             </div>    
         </div> 
+        <div class="form-group">
+            <div class="enviar_apagar">
+                <div class="text-center">
+                    <input type="submit" value="Enviar" id="botao_submit" class="btn btn-info" >
+                    <input type="reset" value="Limpar" id="botao_limpar" class="btn btn-info" >
+                </div>
+            </div>
+        </div>
     </form>
 </div>
-    <?php
-    require './inc_rodape.php';
-    ?>
+<?php
+require './inc_rodape.php';
+?>
