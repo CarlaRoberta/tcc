@@ -5,13 +5,13 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link href="singin.css" rel="stylesheet" type="text/css"/>
+        <link href="css/singin.css" rel="stylesheet" type="text/css"/>
         <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css.css" rel="stylesheet" type="text/css"/>
+        <link href="css/css.css" rel="stylesheet" type="text/css"/>
         <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>
     </head>
-    <body>
+    <body style="background-color:  lightgrey;">
         <div class="container">
             <form class="form-signin">
                 <img src="img/login.png" alt=""/>
