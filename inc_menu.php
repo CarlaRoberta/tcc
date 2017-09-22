@@ -5,7 +5,8 @@
         <title></title>
         <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/css.css" rel="stylesheet" type="text/css"/>
+        <link href="css.css" rel="stylesheet" type="text/css"/>
+        <link href="css/menuL.css" rel="stylesheet" type="text/css"/>
         <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>
     </head>
     <body>
@@ -26,8 +27,7 @@
                         <ul class="nav navbar-nav"> 
                             <li> <a href="Home.php" >Home</a></li>
                             <li> <a href="Controle.php" >Controle</a> </li>
-                            <li> <a href="Cadastro.php">Cadastro</a> </li>
-                            <li> <a href="Contato.php">Contato</a> </li>
+                            <li> <a href="Cadastro_Marca.php">Cadastro</a> </li>
                             <li> <a href="Agendar.php">Agendamento</a> </li>
                         </ul>
                     </div>

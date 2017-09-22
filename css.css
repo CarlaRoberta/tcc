@@ -1,3 +1,4 @@
+
 .fim {
     background-color: #e7e7e7;
     color: #204d74;
@@ -15,7 +16,7 @@
 body,html{
     height: 100%;
 }
-@media (min-width: 1000px) and (max-width: 4300px) {
+@media (min-width: 765px) and (max-width: 4300px) {
     .cont{
         color: #afd9ee;
         background-color: rgba(0,0,0, 0.5);
@@ -43,7 +44,7 @@ body,html{
         height:70%; 
     }
 }
-@media (max-width: 999px) {
+@media (max-width: 765px) {
     .icones{
         margin-left: 40%;
         background-position: top;
@@ -73,6 +74,16 @@ body,html{
         height:75%; 
         width: 100%;
     }
+    .form-group input[type="modelo"]{
+        margin-top: 4%;
+        margin-left: 8%;
+    }
+    .bloco{
+        border: 1px solid transparent;
+        display: block;
+        max-width: 50%;
+        margin-left: 20%;
+    }
 }
 .container{
     margin-top: 3%;
@@ -80,29 +91,4 @@ body,html{
 }
 h1{
     font-size: 1.5em;
-}
-.grupo1{
-    border-radius: 5px;
-     background-color: rgba(0,0,0, 0.3);
-    height: 30%;
-    width:30%;
-    padding: 2%;
-    float: left;
-}
-.grupo2{
-    border-radius: 5px;
-    background-color: rgba(0,0,0, 0.2);
-    padding: 2%;
-    height: 30%;
-    float: left;
-    line-height: 2%;
-    width: 35%;
-}
-.grupo3{
-    float: left;
-    border-radius: 5px;
-    background-color: rgba(0,0,0, 0.1);
-    padding: 2%;   
-    height:30%;
-    width: 35%;
 }

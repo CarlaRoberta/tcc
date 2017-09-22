@@ -5,7 +5,7 @@
     <div class="row" >
         <div class="col-sm-6 col-md-4" >
             <div class="thumbnail">
-                <a href="Cadastro.php"><img src="img/imgCadastro.jpg" alt="" /></a>
+                <a href="Cadastro_Marca.php"><img src="img/imgCadastro.jpg" alt="" /></a>
                 <div class="caption">
                     <h3>Cadastro</h3>
                     <p>Configure dados importantes para o funcionamento do sistema.</p>
