@@ -13,14 +13,14 @@
     </head>
     <body style="background-color: lightgrey;">
         <div class="container">
-            <form class="form-signin">
+            <form class="form-signin" action="inserir_pessoas.php" method="POST" >
                 <img src="img/login.png" alt=""/>
                 <h2 style="color: white;">Cadastro</h2>
-                <input type="text" class="form-control" id="inputNome" placeholder="Nome">
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input type="text" class="form-control" id="nome" placeholder="Nome">
+                <label for="email" class="sr-only">Email address</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+                <label for="senha" class="sr-only">Password</label>
+                <input type="password" id="senha" class="form-control" placeholder="Senha" required>
                 <div class="form-group">
                     <div class="enviar_apagar" >
                         <div class="text-center">
