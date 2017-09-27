@@ -13,7 +13,7 @@
     </head>
     <body style="background-color:  lightgrey;">
         <div class="container">
-            <form class="form-signin">
+            <form class="form-signin" action="verificar.php" method="POST" >
                 <img src="img/login.png" alt=""/>
                 <h2 class="form-signin-heading">Sign in</h2>
                 <label for="inputEmail" class="sr-only">Email address</label>

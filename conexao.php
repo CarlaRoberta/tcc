@@ -1,19 +1,24 @@
-        <meta charset="UTF-8">
+<meta charset="UTF-8">
 
 <?php
-error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
-$hostname="localhost";
-$user="root";
-$pass="1234";
-$bancodedados="Controlardb";
+error_reporting(E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
+$hostname = "localhost";
+$user = "root";
+$pass = "1234";
+$bancodedados = "controlardb";
 
-$con = mysql_connect($hostname,$user,$pass);
-mysql_select_db($bancodedados, $con);
-
-if (!$con){
+$con = mysqli_connect($hostname, $user, $pass, $bancodedados);
+if (!$con) {
     exit("Erro ao conectar ao Banco de Dados");
-}  else {
-    exit("NANIIIIIIIIIIIIIII");    
-}
-
+} 
+//else {
+//    if ($con == true) {
+//        echo 'sucesso';
+//        exit;
+//    }
+//}
+//if (!@mysqli_select_db($bancodedados)) {
+//    echo "<b>Não foi possivel selecinar o banco de dados, ou ele não existe ou esta corrompido!</b>";
+//    exit;
+//}
 ?>

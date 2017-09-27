@@ -1,18 +1,25 @@
 <?php
+require 'conexao.php';
 
-require './conexao.php';
+$nome = $_POST['nome'];
+$email = $_POST['email'];
+$senha = $_POST['senha'];
 
-$nome = $_POST["nome"];
-$email = $_POST["email"];
-$senha = $_POST["senha"];
+$sql = "insert into usuario (USU_LOGIN, USU_EMAIL, USU_PASS) values ('$nome', '$email', '$senha')";
 
-$query = "INSERT INTO `USUARIO` (`nome`, `email`, `senha`) VALUES ('" . $nome . "', '" . $email . "', '" . $senha . "')";
 
-$inserir = mysql_query($query);
-if ($inserir) {
-    echo "Notícia inserida com sucesso!";
+//var_dump($sql);
+//var_dump($con);
+
+$result = mysqli_query($con, $sql);
+
+if ($result == true) {
+    require 'Home.php';
+   
 } else {
-    echo "Não foi possível inserir a notícia, tente novamente.";
-// Exibe dados sobre o erro:
-    echo "Dados sobre o erro:" . mysql_error();
+    if (!mysqli_query($con, $sql)) {
+        $erro = mysqli_error($con);
+        echo "Ocorreu o seguinte erro: ", '"', $erro, '"';
+    }
 }
+?>
