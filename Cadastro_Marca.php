@@ -8,11 +8,11 @@
         <li><a href="Cadastro_Equipamento.php">Equipamento</a></li>
     </ul>
     <div class="bloco">
-        <form>
+        <form action="inseir_cadastromarca.php" method="POST">
             <div class="form-group">
                 <div class="input-group col-sm-10">
                     <div class="text-right">
-                        <input type="marca" class="form-control" id="marca" placeholder="Adicione uma nova marca">
+                        <input type="marca" class="form-control" id="marca" name="marca" placeholder="Adicione uma nova marca">
                     </div>
                 </div>
             </div>
@@ -26,6 +26,11 @@
             </div>    
         </form>
     </div>
+    <?php
+    require 'conexao.php';
+    $sql = "select * from marca";
+    $result = mysqli_query($con, $sql);
+    ?>
     <h1  class="text-center">Consulte</h1>
     <div class="row">
         <div class="col-sm-10">
@@ -34,17 +39,27 @@
                     <table  class="table table-bordered">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Marca</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td class="text-right"><a  class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Alterar</a>
-                                    <a onclick="if (!confirm('Tem certeza que deseja excluir?'))
-                                                return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> Excluir</a></td>                   
-                            </tr>
+                            <?php
+                            while ($dados = mysqli_fetch_assoc($result)) {
+                                $id_marca = $dados ['MCA_ID'];
+                                $nome = $dados ['MCA_NOME'];
+                                ?>
+                                <tr>
+                                    <td><?php echo $id_marca ?></td>
+                                    <td><?php echo $nome; ?></td>
+                                    <td class="text-right"><a  class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Alterar</a>
+                                        <a onclick="if (!confirm('Tem certeza que deseja excluir?'))
+                                                    return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> Excluir</a></td>                   
+                                </tr>
+                                <?php
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
