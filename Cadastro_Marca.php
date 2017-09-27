@@ -41,7 +41,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Marca</th>
-                                <th></th>
+                                <th colspan="2"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,8 +53,8 @@
                                 <tr>
                                     <td><?php echo $id_marca ?></td>
                                     <td><?php echo $nome; ?></td>
-                                    <td class="text-right"><a  class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Alterar</a>
-                                        <a onclick="if (!confirm('Tem certeza que deseja excluir?'))
+                                    <td class="text-right"><a  class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Alterar</a></td>
+                                    <td> <a onclick="if (!confirm('Tem certeza que deseja excluir?'))
                                                     return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> Excluir</a></td>                   
                                 </tr>
                                 <?php
