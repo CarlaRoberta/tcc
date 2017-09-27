@@ -16,11 +16,10 @@
             <form class="form-signin" action="verificar.php" method="POST" >
                 <img src="img/login.png" alt=""/>
                 <h2 class="form-signin-heading">Sign in</h2>
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <a  href="Cadastrouser.php" style="color: red;">Cadastre-se</a>
+                <label for="email" class="sr-only">Email address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
+                <label for="senha" class="sr-only">Password</label>
+                <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required>
                 <div class="form-group">
                     <div class="enviar_apagar" >
                         <div class="text-center">

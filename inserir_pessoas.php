@@ -7,7 +7,6 @@ $senha = $_POST['senha'];
 
 $sql = "insert into usuario (USU_LOGIN, USU_EMAIL, USU_PASS) values ('$nome', '$email', '$senha')";
 
-
 //var_dump($sql);
 //var_dump($con);
 
