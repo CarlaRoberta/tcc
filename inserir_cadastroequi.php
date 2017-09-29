@@ -4,16 +4,15 @@ require 'conexao.php';
 
 $equipamento = $_POST['equipamento'];
 $ambiente = $_POST['ambiente'];
-$selectmarca = $_POST['selectmarca'];
 $selectmodelo = $_POST['selectmodelo'];
-$sql = "insert into modelo (MOD_NOME,MOD_SMA) values ('$modelo','$selectmarca')";
+
+$sql = "insert into equipamentos (EQP_NOME,MOD_ID,EQP_AMB) values ('$equipamento','$selectmodelo','$ambiente')";
 
 var_dump($sql);
 $result = mysqli_query($con, $sql);
 
 if ($result == true) {
-    //require 'Cadastro_Marca.php';
-    echo 'aaaa';
+    require 'Cadastro_Marca.php';
 } else {
     if (!mysqli_query($con, $sql)) {
         $erro = mysqli_error($con);

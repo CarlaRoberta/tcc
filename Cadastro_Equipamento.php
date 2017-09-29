@@ -10,36 +10,22 @@
 
     <?php
     require 'conexao.php';
-    $sqlmarca = "select * from marca";
-    $slmarca = mysqli_query($con, $sqlmarca);
-    $sqlmodelo = "select * from modelo";
-    $slmodelo = mysqli_query($con, $sqlmodelo);
+    $sqlmarcamodelo = "SELECT DISTINCT marca.*, modelo.* FROM marca INNER JOIN modelo ON marca.MCA_ID = modelo.MCA_ID ORDER BY marca.MCA_NOME";
+    $sql = mysqli_query($con, $sqlmarcamodelo);
     ?>
     <form action="inserir_cadastroequi.php" method="POST">
         <div class="form-group">
-            <label for="doque"class="col-sm-1 control-label"> Marca:</label>
-            <div class="col-sm-2">
-                <select id="selectmarca" name="selectmarca" required class="form-control">
-                    <option value="ND"></option>
-                    <?php
-                    while ($dados = mysqli_fetch_assoc($slmarca)) {
-                        $nome = $dados ['MCA_NOME'];
-                        ?>
-                        <option value="<?php echo $nome; ?>"><?php echo $nome; ?></option>
-                        <?php
-                    }
-                    ?>
-                </select>
-            </div>
-            <label for="doque"class="col-sm-1 control-label"> Modelo:</label>
+            <label for="doque"class="col-sm-2 control-label"> Marca/Modelo:</label>
             <div class="input-group col-sm-2">
                 <select id="doque" name="selectmodelo" required class="form-control">
                     <option value="ND"></option>
                     <?php
-                    while ($dados = mysqli_fetch_assoc($slmodelo)) {
-                        $nome = $dados ['MOD_NOME'];
+                    while ($dados = mysqli_fetch_assoc($sql)) {
+                        $nomemodelo = $dados ['MOD_NOME'];
+                        $id=$dados['MOD_ID'];
+                        $nomemarca = $dados['MCA_NOME'];
                         ?>
-                        <option value="<?php echo $nome; ?>"><?php echo $nome; ?></option>
+                        <option value="<?php echo $id; ?>"><?php echo $nomemarca; ?> - <?php echo $nomemodelo; ?></option>
                         <?php
                     }
                     ?>
@@ -75,6 +61,7 @@
                     <table  class="table table-bordered">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Marca</th>
                                 <th>Modelo</th>
                                 <th>Equipamentos</th>
@@ -86,9 +73,10 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td class="text-right"><a  class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Alterar</a>
+                                <td></td>
+                                <td class="text-right"><a  class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
                                     <a onclick="if (!confirm('Tem certeza que deseja excluir?'))
-                                                return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> Excluir</a></td>                   
+                                                return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>                   
                             </tr>
                         </tbody>
                     </table>
