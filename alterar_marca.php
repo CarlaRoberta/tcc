@@ -1,9 +1,11 @@
 <?php
-require './conexao.php';
-$id_marca = $_GET["id"];
 
-$sql = "DELETE FROM marca WHERE MCA_ID = '$id_marca'";
-//var_dump($sql);
+require './conexao.php';
+
+$marca = $_POST['marca'];
+$id_marca = $_POST["id_marca"];
+
+$sql = "UPDATE marca SET MCA_NOME = '$marca' WHERE MCA_ID = $id_marca";
 
 $result = mysqli_query($con, $sql);
 
