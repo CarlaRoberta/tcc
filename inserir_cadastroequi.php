@@ -5,8 +5,9 @@ require 'conexao.php';
 $equipamento = $_POST['equipamento'];
 $ambiente = $_POST['ambiente'];
 $selectmodelo = $_POST['selectmodelo'];
+$selectambiente =$_POST['selectambiente'];
 
-$sql = "insert into equipamentos (EQP_NOME,MOD_ID,EQP_AMB) values ('$equipamento','$selectmodelo','$ambiente')";
+$sql = "insert into equipamentos (EQP_NOME,MOD_ID,AMB_ID) values ('$equipamento','$selectmodelo','$selectambiente')";
 
 var_dump($sql);
 $result = mysqli_query($con, $sql);
