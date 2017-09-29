@@ -9,8 +9,8 @@
     </ul>
     <?php
     require 'conexao.php';
-    $sql = "select * from modelo";
-    $result = mysqli_query($con, $sql);
+    $sqlmarca = "select * from marca";
+    $slmarca = mysqli_query($con, $sqlmarca);
     ?>
     <div class="bloco">
         <form action="inserir_cadastromodelo.php" method="POST">        
@@ -20,7 +20,7 @@
                     <select id="selectmarca" name="selectmarca" required class="form-control">
                         <option value="ND">marca:</option>
                         <?php
-                        while ($dados = mysqli_fetch_assoc($result)) {
+                        while ($dados = mysqli_fetch_assoc($slmarca)) {
                             $nome = $dados ['MCA_NOME'];
                             ?>
                             <option value="<?php echo $nome; ?>"><?php echo $nome; ?></option>
@@ -74,7 +74,7 @@
                                     <td><?php echo $id_modelo ?></td>
                                     <td><?php echo $nome ?></td>
                                     <td><?php echo $smarca ?></td>
-                                    <td class="text-right"><a  href="form_alterar/form_alterar_modelo.php?id= <?php echo $id_modelo; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
+                                    <td class="text-right"><a  href="form_alterar_modelo.php?id= <?php echo $id_modelo; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
                                         <a href="excluir_modelo.php?id= <?php echo $id_modelo; ?>" onclick="if (!confi
                                                         rm('Tem certeza que deseja excluir?'))
                                                     return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>                   

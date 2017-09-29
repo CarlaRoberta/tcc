@@ -27,9 +27,12 @@
 
     $smarca = $dados ['MOD_SMA'];
     $modelo = $dados ['MOD_NOME'];
+    
+    $sqlma = "select * from marca";
+    $slmarca = mysqli_query($con, $sqlma);
     ?>
     <div class="bloco">
-        <form action="inserir_cadastromodelo.php" method="POST">
+        <form action="alterar_modelo.php" method="POST">
             <input type="hidden" name="id_modelo" value="<?php echo $id_modelo; ?>"/>
 
             <div class="form-group">
@@ -38,7 +41,7 @@
                     <select id="selectmarca" name="selectmarca" required class="form-control">
                         <option value="ND">marca:</option>
                         <?php
-                        while ($dados = mysqli_fetch_assoc($result)) {
+                        while ($dados = mysqli_fetch_assoc($slmarca)) {
                             $nome = $dados ['MCA_NOME'];
                             ?>
                             <option value="<?php echo $nome; ?>"><?php echo $nome; ?></option>
@@ -49,7 +52,7 @@
                 </div>
                 <div class="input-group col-sm-4">
                     <div class="text-center">
-                        <input type="modelo" class="form-control" id="modelo" name="modelo" placeholder="Adicione uma novo Modelo">
+                        <input type="modelo" class="form-control" id="modelo" name="modelo" placeholder="Adicione uma novo Modelo" value="<?php echo $modelo; ?>">
                     </div>
                 </div>
             </div>
