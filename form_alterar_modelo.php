@@ -39,7 +39,7 @@
                 <label for="doque"class="col-sm-1 control-label"> Marca:</label>
                 <div class="col-sm-2">
                     <select id="selectmarca" name="selectmarca" required class="form-control">
-                        <option value="ND">marca:</option>
+                        <option><?php echo $smarca; ?></option>
                         <?php
                         while ($dados = mysqli_fetch_assoc($slmarca)) {
                             $nome = $dados ['MCA_NOME'];
