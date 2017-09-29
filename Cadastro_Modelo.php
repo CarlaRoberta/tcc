@@ -9,7 +9,7 @@
     </ul>
     <?php
     require 'conexao.php';
-    $sql = "select * from marca";
+    $sql = "select * from modelo";
     $result = mysqli_query($con, $sql);
     ?>
     <div class="bloco">
@@ -23,7 +23,7 @@
                         while ($dados = mysqli_fetch_assoc($result)) {
                             $nome = $dados ['MCA_NOME'];
                             ?>
-                        <option value="<?php echo $nome;?>"><?php echo $nome; ?></option>
+                            <option value="<?php echo $nome; ?>"><?php echo $nome; ?></option>
                             <?php
                         }
                         ?>
@@ -44,7 +44,11 @@
                 </div>
             </div>  
         </form>
-    </div>
+    </div>    
+    <?php
+    $sql = "select * from modelo";
+    $result = mysqli_query($con, $sql);
+    ?>
     <h1 class="text-center" style="">Consulte</h1>
     <div class="row">
         <div class="col-sm-10">
@@ -53,19 +57,31 @@
                     <table  class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Marca</th>
+                                <th>ID</th>
                                 <th>Modelo</th>
-                                <th ></th>
+                                <th>Marca</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td class="text-right"><a  class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Alterar</a>
-                                    <a onclick="if (!confirm('Tem certeza que deseja excluir?'))
-                                            return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> Excluir</a></td>                   
-                            </tr>
+                            <?php
+                            while ($dados = mysqli_fetch_assoc($result)) {
+                                $id_modelo = $dados ['MOD_ID'];
+                                $nome = $dados ['MOD_NOME'];
+                                $smarca = $dados ['MOD_SMA'];
+                                ?>
+                                <tr>
+                                    <td><?php echo $id_modelo ?></td>
+                                    <td><?php echo $nome ?></td>
+                                    <td><?php echo $smarca ?></td>
+                                    <td class="text-right"><a  href="form_alterar/form_alterar_modelo.php?id= <?php echo $id_modelo; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
+                                        <a href="excluir_modelo.php?id= <?php echo $id_modelo; ?>" onclick="if (!confi
+                                                        rm('Tem certeza que deseja excluir?'))
+                                                    return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>                   
+                                </tr>
+                                <?php
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>

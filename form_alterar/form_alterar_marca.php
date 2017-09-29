@@ -2,7 +2,7 @@
     <?php require './inc_menu.php'; ?>
 </header>
 <div class="container">
-    <h1>Formulário de Alteração de viagem</h1>
+    <h1>Formulário de Alteração de Marca</h1>
     <br>
     <?php
     $id_marca = $_GET["id"];
