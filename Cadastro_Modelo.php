@@ -7,19 +7,31 @@
         <li><a  class="active" href="Cadastro_Modelo.php">Modelo</a></li>
         <li><a href="Cadastro_Equipamento.php">Equipamento</a></li>
     </ul>
+    <?php
+    require 'conexao.php';
+    $sql = "select * from marca";
+    $result = mysqli_query($con, $sql);
+    ?>
     <form>
         <div class="bloco">
             <div class="form-group">
                 <label for="doque"class="col-sm-1 control-label"> Marca:</label>
                 <div class="col-sm-2">
-                    <select id="doque" name="doque" required class="form-control">
+                    <select id="selectmarca" name="selectmarca" required class="form-control">
                         <option value="ND">marca:</option>
-                        <option value="ND"></option>
+                        <?php
+                        while ($dados = mysqli_fetch_assoc($result)) {
+                            $nome = $dados ['MCA_NOME'];
+                            ?>
+                            <option value="<?php $nome?>"><?php echo $nome; ?></option>
+                            <?php
+                        }
+                        ?>
                     </select>
                 </div>
                 <div class="input-group col-sm-4">
                     <div class="text-center">
-                        <input type="modelo" class="form-control" id="modelo" placeholder="Adicione uma novo Modelo">
+                        <input type="modelo" class="form-control" id="modelo" name="modelo" placeholder="Adicione uma novo Modelo">
                     </div>
                 </div>
             </div>
