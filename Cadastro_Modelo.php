@@ -47,7 +47,7 @@
         </form>
     </div>    
     <?php
-    $sql = "select * from modelo";
+    $sql = "SELECT DISTINCT marca.*, modelo.* FROM marca INNER JOIN modelo ON marca.MCA_ID = modelo.MCA_ID ORDER BY marca.MCA_NOME";
     $result = mysqli_query($con, $sql);
     ?>
     <h1 class="text-center" style="">Consulte</h1>
@@ -69,7 +69,7 @@
                             while ($dados = mysqli_fetch_assoc($result)) {
                                 $id_modelo = $dados ['MOD_ID'];
                                 $nome = $dados ['MOD_NOME'];
-                                $smarca = $dados ['MCA_ID'];
+                                $smarca = $dados ['MCA_NOME'];
                                 ?>
                                 <tr>
                                     <td><?php echo $id_modelo ?></td>

@@ -7,9 +7,6 @@
                 <ul>
                     <li><a href="login.html">login</a></li>
                     <li><a href="index.html">Controle</a></li>
-                    <li><a href="#">Minha Lista de Desejos</a></li>
-                    <li><a href="#">Localize meu pedido</a></li>
-                    <li><a href="faq.html">Ajude-me</a></li>
                 </ul>
             </div>
             <div class="col_1_of_4 span_1_of_4">
@@ -18,7 +15,10 @@
                     <li><span>+91-123-456789</span></li>
                     <li><span>+00-123-000000</span></li>
                 </ul>
-
+            </div>
+            <div class="icones">
+                <img style="max-width:7%;" src="img/facebook.png" alt=""/>
+                <img style="max-width:7%;" src="img/gmail.png" alt=""/>
             </div>
         </div>
         <div class="copy_right">

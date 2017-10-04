@@ -16,14 +16,22 @@ if ($result == true) {
     </header> 
 
     <div  class="text-center">
-        <div class="col-sm-6">
-            <?php
-            if (!mysqli_query($con, $sql)) {
-                $erro = mysqli_error($con);
-                echo "<h1>Ocorreu o seguinte erro: ", '"', $erro, '"</h1>';
-            }
-            ?>
-        </div>
+        <?php
+        if (!mysqli_query($con, $sql)) {
+            $erro = mysqli_error($con);
+            echo "<h1>Ocorreu o seguinte erro: ", '"', $erro, '"</h1>';
+        }
+        ?>
     </div>
+    <div class="form-group" >
+        <div class="input-group col-sm-5">
+            <div class="text-right">
+               <a href="Cadastro_Marca.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-left"> Voltar</span>  </a>
+            </div>
+        </div>
+    </div> 
+
+    <?php require './inc_rodape.php'; ?>
+
     <?php
 }
