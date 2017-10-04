@@ -70,7 +70,8 @@
         </div>  
     </form>
     <?php
-    $sql = "select * from equipamentos";
+    $sql = "SELECT DISTINCT equipamentos.*, ambiente.*,modelo.* FROM equipamentos INNER JOIN ambiente ON equipamentos.AMB_ID = ambiente.AMB_ID 
+															 INNER JOIN modelo ON equipamentos.MOD_ID = modelo.MOD_ID ORDER BY equipamentos.EQP_NOME";
     $result = mysqli_query($con, $sql);
     ?>
     <h1 class="text-center" style="">Consulte</h1>
@@ -85,6 +86,7 @@
                                 <th>Equipamentos</th>
                                 <th>Modelo</th>
                                 <th>Marca</th>
+                                <th>Ambiente</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -94,13 +96,15 @@
                                 $id_equipamento = $dados ['EQP_ID'];
                                 $nomeequipamento = $dados ['EQP_NOME'];
                                 $nomemodelo = $dados['MOD_NOME'];
-                                $idmarca = $dados ['MCA_ID'];
+                                $nomemarca = $dados ['MCA_NOME'];
+                                $nomedoambiente = $dados ['AMB_NOME'];
                                 ?>
                                 <tr>
                                     <td><?php echo $id_equipamento ?></td>
                                     <td><?php echo $nomeequipamento ?></td>
                                     <td><?php echo $nomemodelo ?></td>
-                                    <td><?php echo $idmarca ?></td>
+                                    <td><?php echo $nomemarca ?></td>
+                                    <td><?php echo $nomedoambiente ?></td>
                                     <td class="text-right"><a  class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
                                         <a href="excluir_equipamentos.php?id= <?php echo $i; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
                                                     return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>                   
