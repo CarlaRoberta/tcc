@@ -19,17 +19,18 @@
     }
     require './conexao.php';
 
-    $sql = "SELECT MOD_NOME,MOD_SMA FROM modelo WHERE MOD_ID = $id_modelo";
+    $sql = "SELECT MOD_NOME,MCA_ID FROM modelo WHERE MOD_ID = $id_modelo";
 
     $result = mysqli_query($con, $sql);
 
     $dados = mysqli_fetch_assoc($result);
 
-    $smarca = $dados ['MOD_SMA'];
     $modelo = $dados ['MOD_NOME'];
     
     $sqlma = "select * from marca";
     $slmarca = mysqli_query($con, $sqlma);
+    $dmarca = mysqli_fetch_assoc($slmarca);
+    $smarca = $dmarca ['MCA_NOME'];
     ?>
     <div class="bloco">
         <form action="alterar_modelo.php" method="POST">
@@ -60,7 +61,7 @@
                 <div class="input-group col-sm-5">
                     <div class="text-right">
                         <input type="submit" value="Gravar" id="botao_submit" class="btn btn-info" >
-                        <input type="reset" value="Cancelar" id="botao_limpar" class="btn btn-info" >
+                        <a href="Cadastro_Modelo.php"  class="btn btn-info"> Cancelar</a>
                     </div>
                 </div>
             </div>  

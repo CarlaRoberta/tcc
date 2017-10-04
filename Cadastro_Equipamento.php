@@ -64,7 +64,7 @@
             <div class="input-group col-sm-5">
                 <div class="text-right">
                     <input type="submit" value="Gravar" id="botao_submit" class="btn btn-info" >
-                    <input type="reset" value="Cancelar" id="botao_limpar" class="btn btn-info" >
+                    <input type="reset" value="Limpar" id="botao_limpar" class="btn btn-info" >
                 </div>
             </div>
         </div>  
@@ -105,7 +105,7 @@
                                     <td><?php echo $nomemodelo ?></td>
                                     <td><?php echo $nomemarca ?></td>
                                     <td><?php echo $nomedoambiente ?></td>
-                                    <td class="text-right"><a href="form_alterar_equipamentos.php" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
+                                    <td class="text-right"><a href="form_alterar_equipamentos.php?id= <?php echo $id_equipamento; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
                                         <a href="excluir_equipamentos.php?id= <?php echo $id_equipamento; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
                                                     return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>                   
                                 </tr>

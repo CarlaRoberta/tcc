@@ -20,7 +20,7 @@
                 <div class="input-group col-sm-5">
                     <div class="text-right">
                         <input type="submit" value="Gravar" id="botao_submit" class="btn btn-info" >
-                        <input type="reset" value="Cancelar" id="botao_limpar" class="btn btn-info" >
+                        <input type="reset" value="Limpar" id="botao_limpar" class="btn btn-info" >
                     </div>
                 </div>
             </div>    

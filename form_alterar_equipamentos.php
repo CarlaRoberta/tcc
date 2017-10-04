@@ -19,53 +19,81 @@
     }
     require './conexao.php';
 
-    $sql = "SELECT MOD_NOME,MOD_SMA FROM modelo WHERE MOD_ID = $id_modelo";
+    $sql = "SELECT EQP_NOME,MOD_ID,AMB_ID FROM equipamentos WHERE EQP_ID = $id_equipamento";
 
     $result = mysqli_query($con, $sql);
 
     $dados = mysqli_fetch_assoc($result);
 
-    $smarca = $dados ['MOD_SMA'];
-    $modelo = $dados ['MOD_NOME'];
-    
-    $sqlma = "select * from marca";
-    $slmarca = mysqli_query($con, $sqlma);
-    ?>
-    <div class="bloco">
-        <form action="alterar_modelo.php" method="POST">
-            <input type="hidden" name="id_modelo" value="<?php echo $id_modelo; ?>"/>
+    $idambiente = $dados ['AMB_ID'];
+    $idmodelo = $dados ['MOD_ID'];
+    $equipamentos = $dados ['EQP_NOME'];
 
-            <div class="form-group">
-                <label for="doque"class="col-sm-1 control-label"> Marca:</label>
-                <div class="col-sm-2">
-                    <select id="selectmarca" name="selectmarca" required class="form-control">
-                        <option><?php echo $smarca; ?></option>
-                        <?php
-                        while ($dados = mysqli_fetch_assoc($slmarca)) {
-                            $nome = $dados ['MCA_NOME'];
-                            ?>
-                            <option value="<?php echo $nome; ?>"><?php echo $nome; ?></option>
-                            <?php
-                        }
+    $sqlmarcamodelo = "SELECT DISTINCT marca.*, modelo.* FROM marca INNER JOIN modelo ON marca.MCA_ID = modelo.MCA_ID ORDER BY marca.MCA_NOME";
+    $sql = mysqli_query($con, $sqlmarcamodelo);
+    $dmarcamodelo = mysqli_fetch_assoc($sql);
+    $nomemodelo = $dmarcamodelo ['MOD_NOME'];
+    $nomemarca = $dmarcamodelo['MCA_NOME'];
+    ?>
+    <form action="inserir_cadastroequi.php" method="POST">
+        <div class="form-group">
+            <label for="marca/modelo" class="col-sm-2 control-label"> Marca/Modelo:</label>
+            <div class="input-group col-sm-2">
+                <select id="doque" name="selectmodelo" required class="form-control">
+                    <option value="ND"><?php echo $nomemarca; ?> - <?php echo $nomemodelo; ?></option>
+                    <?php
+                    while ($dados = mysqli_fetch_assoc($sql)) {
+                        $nomemodelo = $dados ['MOD_NOME'];
+                        $id = $dados['MOD_ID'];
+                        $nomemarca = $dados['MCA_NOME'];
                         ?>
-                    </select>
-                </div>
-                <div class="input-group col-sm-4">
-                    <div class="text-center">
-                        <input type="modelo" class="form-control" id="modelo" name="modelo" placeholder="Adicione uma novo Modelo" value="<?php echo $modelo; ?>">
-                    </div>
+                        <option value="<?php echo $id; ?>"><?php echo $nomemarca; ?> - <?php echo $nomemodelo; ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <?php
+            $sqlam = "select * from ambiente";
+            $resultam = mysqli_query($con, $sqlam);
+            $dambient= mysqli_fetch_assoc($resultam);
+            $nomeambiente = $dambient ['AMB_NOME'];
+            ?>
+            <label for="marca/modelo" class="col-sm-2 control-label"> Ambiente:</label>
+            <div class="input-group col-sm-2">
+                <select id="ambiente" name="selectambiente" required class="form-control">
+                    <option value="ND"><?php echo $nomeambiente; ?></option>
+                    <?php
+                    while ($dados = mysqli_fetch_assoc($resultam)) {
+                        $id = $dados['AMB_ID'];
+                        $nomeambiente = $dados['AMB_NOME'];
+                        ?>
+                        <option value="<?php echo $id; ?>"><?php echo $nomeambiente; ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class=" col-sm-4">
+                <div class="text-center">
+                    <input type="equipamento" class="form-control" id="equipamento" name="equipamento" value="<?php echo $equipamentos; ?>">
                 </div>
             </div>
-            <div class="form-group" style="margin-left: 20%;">
-                <div class="input-group col-sm-5">
-                    <div class="text-right">
-                        <input type="submit" value="Gravar" id="botao_submit" class="btn btn-info" >
-                        <input type="reset" value="Cancelar" id="botao_limpar" class="btn btn-info" >
-                    </div>
+        </div>
+        <div class="form-group" >
+            <div class="input-group col-sm-5">
+                <div class="text-right">
+                    <input type="submit" value="Gravar" id="botao_submit" class="btn btn-info" >
+                    <a href="Cadastro_Equipamento.php"  class="btn btn-info"> Cancelar</a>
                 </div>
-            </div>  
-        </form>
-    </div>    
+            </div>
+        </div>  
+    </form>
 </div>
 <?php
 require './inc_rodape.php';
+?>
