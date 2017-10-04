@@ -25,7 +25,7 @@
 
     $dados = mysqli_fetch_assoc($result);
 
-    $marca = $dados ['AMB_NOME'];
+    $ambiente = $dados ['AMB_NOME'];
     ?>
     <div class="bloco">
         <form action="alterar_ambiente.php" method="POST">
