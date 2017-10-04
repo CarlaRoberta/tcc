@@ -5,6 +5,7 @@
     <ul class="menulateral">
         <li><a class="active" href="Cadastro_Marca.php">Marca</a></li>
         <li><a href="Cadastro_Modelo.php">Modelo</a></li>
+        <li><a href="Cadastro_Ambiente.php">Ambiente</a></li>
         <li><a href="Cadastro_Equipamento.php">Equipamento</a></li>
     </ul>
     <div class="bloco">
@@ -54,7 +55,7 @@
                                     <td><?php echo $id_marca ?></td>
                                     <td><?php echo $nome; ?></td>
                                     <td class="text-right"><a href="form_alterar_marca.php?id= <?php echo $id_marca; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
-                                    <a href="excluir_marca.php?id= <?php echo $id_marca; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
+                                        <a href="excluir_marca.php?id= <?php echo $id_marca; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
                                                     return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>                   
                                 </tr>
                                 <?php

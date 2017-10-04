@@ -5,6 +5,7 @@
     <ul class="menulateral">
         <li><a href="Cadastro_Marca.php">Marca</a></li>
         <li><a  class="active" href="Cadastro_Modelo.php">Modelo</a></li>
+        <li><a href="Cadastro_Ambiente.php">Ambiente</a></li>
         <li><a href="Cadastro_Equipamento.php">Equipamento</a></li>
     </ul>
     <?php
@@ -22,7 +23,7 @@
                         <?php
                         while ($dados = mysqli_fetch_assoc($slmarca)) {
                             $nome = $dados ['MCA_NOME'];
-                            $id=$dados['MCA_ID'];
+                            $id = $dados['MCA_ID'];
                             ?>
                             <option value="<?php echo $id; ?>"><?php echo $nome; ?></option>
                             <?php
@@ -77,7 +78,7 @@
                                     <td><?php echo $smarca ?></td>
                                     <td class="text-right"><a  href="form_alterar_modelo.php?id= <?php echo $id_modelo; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
                                         <a href="excluir_modelo.php?id= <?php echo $id_modelo; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
-                                                    return false;"  class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>                   
+                                                        return false;"  class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>                   
                                 </tr>
                                 <?php
                             }
