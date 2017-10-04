@@ -1,21 +1,31 @@
-<footer>        
-    <div class="fim">
-        <div class="rodape_esquerda">
-            <address>
-                <strong>CONTROLE ALTERNATIVO DE CONDICIONADORES DE AR A PARTIR DE SISTEMA COMPUTADORIZADO</strong><br>
-                Instituto Federal, Votuporanga<br> 
-            </address>
-            <address>
-                <strong>Contato</strong><br>
-                <p>Email: Carlarobertaoliveira64@gmail.com</p>
-                <p>Email: Joao.votu.jv@gmail.com</p><br>
-            </address>  
+<div class="footer">
+    <div class="wrapper">	
+        <div class="section group">
+
+            <div class="col_1_of_4 span_1_of_4">
+                <h4>Minha conta</h4>
+                <ul>
+                    <li><a href="login.html">login</a></li>
+                    <li><a href="index.html">Controle</a></li>
+                    <li><a href="#">Minha Lista de Desejos</a></li>
+                    <li><a href="#">Localize meu pedido</a></li>
+                    <li><a href="faq.html">Ajude-me</a></li>
+                </ul>
+            </div>
+            <div class="col_1_of_4 span_1_of_4">
+                <h4>Contato</h4>
+                <ul>
+                    <li><span>+91-123-456789</span></li>
+                    <li><span>+00-123-000000</span></li>
+                </ul>
+
+            </div>
         </div>
-        <div class="img_rodape">
-            <img style="width: 40%; height: 25%;" src="img/logo.png" alt=""/>    
+        <div class="copy_right">
+            <p> Copyright  &COPY; Carla roberta  & João Victor 2017  </p>
         </div>
     </div>
-</footer>
+</div>
 <script src="js/jquery-1.12.4.min.js"></script>
 <script> window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>

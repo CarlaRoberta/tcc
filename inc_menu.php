@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <link href="css/rodape.css" rel="stylesheet" type="text/css"/>
         <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css.css" rel="stylesheet" type="text/css"/>
@@ -33,10 +34,7 @@
                     </div>
                 </div>
             </nav> 
-            <div class="cont">
-                <h1>Controle Alternativo de Condicionadores de Ar</h1>
-                <p>Facilidade e Comodidade</p>
-            </div>
+           
             <div class="icones">
                 <img style="max-width:7%; " src="img/Instagram.png" alt=""/>
                 <img style="max-width:7%;" src="img/facebook.png" alt=""/>

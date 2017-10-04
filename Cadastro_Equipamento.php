@@ -93,17 +93,17 @@
                             while ($dados = mysqli_fetch_assoc($result)) {
                                 $id_equipamento = $dados ['EQP_ID'];
                                 $nomeequipamento = $dados ['EQP_NOME'];
-                                $idmodelo = $dados ['MOD_ID'];
+                                $nomemodelo = $dados['MOD_NOME'];
                                 $idmarca = $dados ['MCA_ID'];
                                 ?>
                                 <tr>
                                     <td><?php echo $id_equipamento ?></td>
                                     <td><?php echo $nomeequipamento ?></td>
-                                    <td><?php echo $idmodelo ?></td>
+                                    <td><?php echo $nomemodelo ?></td>
                                     <td><?php echo $idmarca ?></td>
                                     <td class="text-right"><a  class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
                                         <a href="excluir_equipamentos.php?id= <?php echo $i; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
-                                                        return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>                   
+                                                    return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>                   
                                 </tr>
                             </tbody>
                             <?php
