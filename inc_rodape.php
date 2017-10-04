@@ -5,8 +5,17 @@
             <div class="col_1_of_4 span_1_of_4">
                 <h4>Acesso Rapido</h4>
                 <ul>
-                    <li><a href="login.html">login</a></li>
-                    <li><a href="index.html">Controle</a></li>
+                    <li><a href="Cadastro_Marca.php">Cadastro</a></li>
+                    <li><a href="Controle.php">Controle</a></li>
+                    <li><a href="Agendar.php">Agenda</a></li>
+                    <li><a href="Aprender.php">Apredizagem</a></li>
+                </ul>
+            </div>
+            <div class="col_1_of_4 span_1_of_4">
+                <h4>Usuario</h4>
+                <ul>
+                    <li><a href="Singin.php">Login</a></li>
+                    <li><a href="Cadastrouser.php">Cadastrar usuario</a></li>
                 </ul>
             </div>
             <div class="col_1_of_4 span_1_of_4">

@@ -13,7 +13,7 @@ $sql = "insert into equipamentos (EQP_NOME,MOD_ID,AMB_ID) values ('$equipamento'
 $result = mysqli_query($con, $sql);
 
 if ($result == true) {
-    require 'Cadastro_Marca.php';
+    require 'Cadastro_Equipamento.php';
 } else {
     if (!mysqli_query($con, $sql)) {
         $erro = mysqli_error($con);

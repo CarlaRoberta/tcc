@@ -38,7 +38,7 @@
             $sql = "select * from ambiente";
             $result = mysqli_query($con, $sql);
             ?>
-            <label for="marca/modelo" class="col-sm-2 control-label"> Ambiente:</label>
+            <label for="ambiente" class="col-sm-2 control-label"> Ambiente:</label>
             <div class="input-group col-sm-2">
                 <select id="ambiente" name="selectambiente" required class="form-control">
                     <option value="ND"></option>
@@ -57,7 +57,7 @@
         <div class="form-group">
             <div class=" col-sm-4">
                 <div class="text-center">
-                    <input type="equibamento" class="form-control" id="equipamento" name="equipamento" placeholder="Adicione uma novo Equipamento">
+                    <input type="equipamento" class="form-control" id="equipamento" name="equipamento" placeholder="Adicione uma novo Equipamento">
                 </div>
             </div>
         </div>
@@ -71,8 +71,7 @@
         </div>  
     </form>
     <?php
-    $sql = "SELECT DISTINCT equipamentos.*, ambiente.*,modelo.* FROM equipamentos INNER JOIN ambiente ON equipamentos.AMB_ID = ambiente.AMB_ID 
-															 INNER JOIN modelo ON equipamentos.MOD_ID = modelo.MOD_ID ORDER BY equipamentos.EQP_NOME";
+    $sql = "SELECT DISTINCT equipamentos.*, ambiente.*,modelo.*, marca.* FROM equipamentos INNER JOIN ambiente ON equipamentos.AMB_ID = ambiente.AMB_ID INNER JOIN modelo ON equipamentos.MOD_ID = modelo.MOD_ID INNER JOIN marca ON modelo.MCA_ID = marca.MCA_ID ORDER BY equipamentos.EQP_NOME";
     $result = mysqli_query($con, $sql);
     ?>
     <h1 class="text-center" style="">Consulte</h1>
