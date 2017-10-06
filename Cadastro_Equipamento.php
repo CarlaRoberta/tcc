@@ -55,14 +55,15 @@
             </div>
         </div>
         <div class="form-group">
-            <div class=" col-sm-4">
+            <label for="equipamento" class="col-sm-2 control-label"> Equipamento:</label>
+            <div class=" col-sm-3">
                 <div class="text-center">
                     <input type="equipamento" class="form-control" id="equipamento" name="equipamento" placeholder="Adicione uma novo Equipamento">
                 </div>
             </div>
         </div>
         <div class="form-group" >
-            <div class="input-group col-sm-5">
+            <div class="input-group col-sm-7">
                 <div class="text-right">
                     <input type="submit" value="Gravar" id="botao_submit" class="btn btn-info" >
                     <input type="reset" value="Limpar" id="botao_limpar" class="btn btn-info" >

@@ -31,7 +31,8 @@
                         ?>
                     </select>
                 </div>
-                <div class="input-group col-sm-4">
+                <label for="modelo" class="col-sm-2 control-label"> Modelo:</label>
+                <div class="input-group col-sm-5">
                     <div class="text-center">
                         <input type="modelo" class="form-control" id="modelo" name="modelo" placeholder="Adicione uma novo Modelo">
                     </div>
@@ -51,7 +52,7 @@
     $sql = "SELECT DISTINCT marca.*, modelo.* FROM marca INNER JOIN modelo ON marca.MCA_ID = modelo.MCA_ID ORDER BY marca.MCA_NOME";
     $result = mysqli_query($con, $sql);
     ?>
-    <h1 class="text-center" style="">Consulte</h1>
+    <h1 class="text-center" style="">Modelos de Condicionadores de Ar.</h1>
     <div class="row">
         <div class="col-sm-10">
             <div class="text-center">
@@ -78,11 +79,38 @@
                                     <td><?php echo $smarca ?></td>
                                     <td class="text-right"><a  href="form_alterar_modelo.php?id= <?php echo $id_modelo; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
                                         <a href="excluir_modelo.php?id= <?php echo $id_modelo; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
-                                                        return false;"  class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>                   
+                                                    return false;"  class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>                   
                                 </tr>
                                 <?php
                             }
                             ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="text-center" style="">Comandos Capturados.</h1>
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="text-center">
+                <div class="table-responsive">
+                    <table  class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Comando</th>
+                                <th>Código Capturados</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>                
+                                <td class="text-right"><a  href="form_alterar_comandos.php?id= <?php echo $id_comandos; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
+                                    <a href="excluir_comandos.php?id= <?php echo $id_comandos; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
+                                                return false;"  class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>                   
+                            </tr>
                         </tbody>
                     </table>
                 </div>

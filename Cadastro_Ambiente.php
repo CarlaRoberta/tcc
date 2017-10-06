@@ -11,7 +11,8 @@
     <div class="bloco">
         <form action="inseir_cadastroambiente.php" method="POST">
             <div class="form-group">
-                <div class="input-group col-sm-10">
+                <label for="ambiente" class="col-sm-2 control-label"> Ambiente:</label>
+                <div class="input-group col-sm-5">
                     <div class="text-right">
                         <input type="ambiente" class="form-control" id="ambiente" name="ambiente" placeholder="Adicione um novo ambiente">
                     </div>
@@ -48,7 +49,7 @@
                         <tbody>
                             <?php
                             while ($dados = mysqli_fetch_assoc($result)) {
-                                $id_ambiente= $dados ['AMB_ID'];
+                                $id_ambiente = $dados ['AMB_ID'];
                                 $nome = $dados ['AMB_NOME'];
                                 ?>
                                 <tr>
