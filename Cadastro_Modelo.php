@@ -2,12 +2,7 @@
     <?php require './inc_menu.php'; ?>
 </header>
 <div class="container">
-    <ul class="menulateral">
-        <li><a href="Cadastro_Marca.php">Marca</a></li>
-        <li><a  class="active" href="Cadastro_Modelo.php">Modelo</a></li>
-        <li><a href="Cadastro_Ambiente.php">Ambiente</a></li>
-        <li><a href="Cadastro_Equipamento.php">Equipamento</a></li>
-    </ul>
+    <?php require './inc_menuLateral.php'; ?>
     <?php
     require 'conexao.php';
     $sqlmarca = "select * from marca";

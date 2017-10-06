@@ -30,7 +30,6 @@
                             <li> <a href="Controle.php" >Controle</a> </li>
                             <li> <a href="Cadastro_Marca.php">Cadastro</a> </li>
                             <li> <a href="Agendar.php">Agendamento</a> </li>
-                            <li> <a href="Aprender.php">Aprendizagem</a> </li>
                         </ul>
                     </div>
                 </div>

@@ -2,6 +2,7 @@
     <?php require './inc_menu.php'; ?>
 </header>
 <div class="container">
+    <?php require './inc_menuLateral.php'; ?>
     <form>
         <div class="form-group">
             <label for="marca/modelo" class="col-sm-3 control-label">Modelo:</label>
