@@ -9,7 +9,7 @@ $selectambiente =$_POST['selectambiente'];
 
 $sql = "insert into equipamentos (EQP_NOME,MOD_ID,AMB_ID) values ('$equipamento','$selectmodelo','$selectambiente')";
 
-//var_dump($sql);
+var_dump($sql);
 $result = mysqli_query($con, $sql);
 
 if ($result == true) {

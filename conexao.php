@@ -5,7 +5,7 @@ error_reporting(E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
 $hostname = "localhost";
 $user = "root";
 $pass = "1234";
-$bancodedados = "controlarbd";
+$bancodedados = "controlardb";
 
 $con = mysqli_connect($hostname, $user, $pass, $bancodedados);
 if (!$con) {

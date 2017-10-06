@@ -49,7 +49,7 @@
             </div>
             <div class="input-group col-sm-5">
                 <div class="text-right">
-                    <a href="Comandos.php.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-right"> </span>  </a>
+                    <a href="Comandos.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-right"> </span>  </a>
                 </div>
             </div>
         </div>
@@ -85,7 +85,10 @@
                         <tbody>
                             <tr>
                                 <td></td>
-                                <td></td>                
+                                <td></td>  
+                                <td class="text-right"><a href="form_alterar_apredizado.php?id= <?php echo $id_equipamento; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
+                                                       <a href="excluir_aprendizado.php?id= <?php echo $id_equipamento; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
+                                                        return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>
                             </tr>
                         </tbody>
                     </table>

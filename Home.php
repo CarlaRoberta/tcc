@@ -17,7 +17,7 @@
                 <a href="Agendar.php"><img src="img/imgAgendamento.jpg" alt=""/></a>
                 <div class="caption">
                     <h3>Agenda</h3>
-                    <p>Programe eventos de comandos de Condicionadores de Ar em datas e horarios especificos.</p>
+                    <p>Programe eventos de comandos em datas e horarios especificos.</p>
                 </div>
             </div>
         </div>
