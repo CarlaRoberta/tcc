@@ -1,12 +1,9 @@
 <?php
+require './conexao.php';
+$id_comandos = $_POST["id_comandos"];
+$descricao = $_POST["descricao"];
 
-require 'conexao.php';
-
-$descrição = $_POST['descricao'];
-
-$sql = "insert into comandos (CMD_DESCRI) values ('$descrição')";
-
-var_dump($sql);
+$sql = "UPDATE comandos SET CMD_DESCRI = '$descricao' WHERE CMD_ID = '$id_comandos'";
 $result = mysqli_query($con, $sql);
 
 if ($result == true) {

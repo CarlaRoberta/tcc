@@ -27,12 +27,30 @@
                 </select>
             </div>
         </div>
+        <?php
+        $sqlcomandos = "Select * from comandos";
+        $resultcomandos = mysqli_query($con, $sqlcomandos);
+        ?>
         <div class="form-group">
             <label for="comandos" class="col-sm-3 control-label"> Comandos:</label>
             <div class="input-group col-sm-2">
                 <select id="comandos" name="comandos" required class="form-control">
                     <option value="ND"></option>
+                    <?php
+                    while ($dados = mysqli_fetch_assoc($resultcomandos)) {
+                        $descricao = $dados ['CMD_DESCRI'];
+                        $id = $dados['CMD_ID'];
+                        ?>
+                    <option value="<?php echo $id; ?>"><?php echo $descricao; ?></option>
+                        <?php
+                    }
+                    ?>
                 </select>
+            </div>
+            <div class="input-group col-sm-5">
+                <div class="text-right">
+                    <a href="Comandos.php.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-right"> </span>  </a>
+                </div>
             </div>
         </div>
         <div class="form-group">
