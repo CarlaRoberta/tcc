@@ -3,33 +3,40 @@
 </header>
 <div class="container">
     <?php require './inc_menuLateral.php'; ?>
-    <form>
+    <?php
+    require 'conexao.php';
+    $sqlmarcamodelo = "SELECT DISTINCT marca.*, modelo.* FROM marca INNER JOIN modelo ON marca.MCA_ID = modelo.MCA_ID ORDER BY marca.MCA_NOME";
+    $sql = mysqli_query($con, $sqlmarcamodelo);
+    ?>
+    <form action="inserir_comandos.php" method="POST">
         <div class="form-group">
-            <label for="marca/modelo" class="col-sm-3 control-label">Modelo:</label>
+            <label for="marca/modelo" class="col-sm-3 control-label"> Marca/Modelo:</label>
             <div class="input-group col-sm-2">
                 <select id="doque" name="selectmodelo" required class="form-control">
                     <option value="ND"></option>
+                    <?php
+                    while ($dados = mysqli_fetch_assoc($sql)) {
+                        $nomemodelo = $dados ['MOD_NOME'];
+                        $id = $dados['MOD_ID'];
+                        $nomemarca = $dados['MCA_NOME'];
+                        ?>
+                        <option value="<?php echo $id; ?>"><?php echo $nomemarca; ?> - <?php echo $nomemodelo; ?></option>
+                        <?php
+                    }
+                    ?>
                 </select>
             </div>
         </div>
         <div class="form-group">
-            <label for="equipamento" class="col-sm-3 control-label"> Equipamento:</label>
+            <label for="comandos" class="col-sm-3 control-label"> Comandos:</label>
             <div class="input-group col-sm-2">
-                <select id="equipamento" name="equipamento" required class="form-control">
+                <select id="comandos" name="comandos" required class="form-control">
                     <option value="ND"></option>
                 </select>
             </div>
         </div>
         <div class="form-group">
             <label for="" class="col-sm-3 control-label">Comandos Capturados:</label>
-            <div class="input-group col-sm-7">          
-                <textarea class="form-control" rows="3"></textarea>
-                <div class="text-right">
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="" class="col-sm-3 control-label"> Descrição:</label>
             <div class="input-group col-sm-7">          
                 <textarea class="form-control" rows="3"></textarea>
                 <div class="text-right">

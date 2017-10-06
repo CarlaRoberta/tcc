@@ -43,7 +43,7 @@ ul.menulateral li a:hover:not(.active) {
     }
 }
 
-@media (max-width: 999px) {
+@media (min-width: 480px) and (max-width: 999px) {
 
     ul.menulateral {
         width: 100%;
@@ -55,4 +55,20 @@ ul.menulateral li a:hover:not(.active) {
         padding: 15px;
     }
     div.content {margin-left: 0;}
+}
+@media  (max-width: 479px) {
+
+    ul.menulateral{
+        height: auto;
+        position: relative;
+        float: right;
+    }
+    ul.menulateral li a {
+        text-align: center;
+        display: block;
+    }
+    div.content {
+        padding: 1px 16px;
+        height: 1000px;
+    }
 }
