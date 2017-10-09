@@ -1,19 +1,31 @@
 <header>
     <?php require './inc_menu.php'; ?>
+    <script src="js/script.js" type="text/javascript"></script>
 </header>
 <div class="container">
-    <div class="panel panel-danger">
-        <div class="panel-heading">Controle</div>
-        <div class="panel-body">
-            <p>Selecione o camando para ser enviado.</p>
-        </div>
-    </div>
-    <h1 style="text-align-last: right;">Ambiente</h1>
-    <ul class="menulateral">
-        <li><a class="active" href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-    </ul>
+    <?php
+    $mysql_query = "SELECT * FROM ambiente";
+    if (isset($_POST['btnEnviar'])) {
+        $nomedoambiente = $_POST['ambientes'];
+    }
+    ?>
+    <form class="navbar-form navbar-left" role="search">
+        <input type="text" class="form-control" placeholder="ambientes" name="nomedoambiente"/>
+        <input type="submit" class="btn btn-default" value="Enviar" name="btnEnviar">
+
+    </form>
+
+    <?php
+    require 'conexao.php';
+    $sql = "SELECT DISTINCT equipamentos.*, ambiente.*,modelo.*, marca.* FROM equipamentos 
+    INNER JOIN ambiente ON equipamentos.AMB_ID = ambiente.AMB_ID 
+    INNER JOIN modelo ON equipamentos.MOD_ID = modelo.MOD_ID 
+    INNER JOIN marca ON modelo.MCA_ID = marca.MCA_ID
+    ORDER BY equipamentos.EQP_NOME
+    ";
+    $result = mysqli_query($con, $sql);
+    
+    ?>
     <div class="row">
         <div class="col-sm-10">
             <div class="text-center">
@@ -21,21 +33,51 @@
                     <table  class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Descrição</th>
-                                <th></th>
+                                <th>Ambiente</th>
+                                <th>Marca/Modelo</th>
+                                <th>Comandos</th>
+                                <th></th>    
+                            </tr>
+                            <tr>
+                                <th><input type="text" id="txtColuna1"/></th>
+                                <th><input type="text" id="txtColuna2"/></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td class="text-right"><div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                        </label>
-                                    </div></td>                   
-                            </tr>
+                            <?php
+                            while ($dados = mysqli_fetch_assoc($result)) {
+                                $nomemodelo = $dados['MOD_NOME'];
+                                $nomemarca = $dados ['MCA_NOME'];
+                                $nomedoambiente = $dados ['AMB_NOME'];
+                                ?>
+                                <tr>                                
+                                    <td><?php echo $nomedoambiente; ?></td>
+                                    <td><?php echo $nomemarca; ?> - <?php echo $nomemodelo; ?></td>
+                                    <?php
+                                    $sqlcomandos = "select * from comandos";
+                                    $resultcomandos = mysqli_query($con, $sqlcomandos);
+                                    ?>
+                                    <td><select id="doque" name="selectmodelo" required class="form-control">
+                                            <option value="ND"></option>
+                                            <?php
+                                            while ($dados = mysqli_fetch_assoc($resultcomandos)) {
+                                                $descricao = $dados ['CMD_DESCRI'];
+                                                $id = $dados['CMD_ID'];
+                                                ?>
+                                                <option value="<?php echo $id; ?>"><?php echo $descricao; ?></option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select></td>
+                                    <td class="text-right"><div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                            </label>
+                                        </div></td>                   
+                                </tr>
+                                <?php
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>

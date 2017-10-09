@@ -74,7 +74,7 @@
         <div class="col-sm-10">
             <div class="text-center">
                 <div class="table-responsive">
-                    <table  class="table table-bordered">
+                    <table id="tabela"  class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>ID</th>
