@@ -37,17 +37,16 @@ body,html{
         text-align: left;
         margin-left: 5%;
     }
-/*    header{
-        background-image: url(img/text.png);
+    header{
+        background-image: url(img/BANNER.png);
         background-size: cover;
         background-position: bottom;
         height:70%; 
-    }*/
+    }
 }
 @media (max-width: 765px) {
     .icones{
         margin-left: 40%;
-        background-position: top;
     }
     .cont{
         position: absolute;
@@ -68,11 +67,10 @@ body,html{
         margin-left: 5%;
     }
     header{
-        background-image: url(img/flocos.jpg);
+        background-image: url(img/bannerres.png);
         background-size: cover;
         background-position: center;
         height:75%; 
-        width: 100%;
     }
     .form-group input[type="modelo"]{
         margin-top: 4%;
