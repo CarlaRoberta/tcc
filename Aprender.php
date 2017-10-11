@@ -33,7 +33,7 @@
         ?>
         <div class="form-group">
             <label for="comandos" class="col-sm-3 control-label"> Comandos:</label>
-            <div class="input-group col-sm-7">
+            <div class="input-group col-sm-5">
                 <select id="comandos" name="comandos" required class="form-control">
                     <option value="ND"></option>
                     <?php
@@ -47,7 +47,7 @@
                     ?>
                 </select>
             </div>
-            <div class="input-group col-sm-10">
+            <div class="input-group col-sm-8">
                 <div class="text-right">
                     <a href="Comandos.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-right"> </span>  </a>
                 </div>

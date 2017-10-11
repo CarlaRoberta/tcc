@@ -1,6 +1,5 @@
 <header>
     <?php require './inc_menu.php'; ?>
-    <script src="js/script.js" type="text/javascript"></script>
 </header>
 <div class="container">
     <?php
@@ -10,11 +9,17 @@
     }
     ?>
     <form class="navbar-form navbar-left" role="search">
-        <input type="text" class="form-control" placeholder="ambientes" name="nomedoambiente"/>
-        <input type="submit" class="btn btn-default" value="Enviar" name="btnEnviar">
-
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="ambientes" name="nomedoambiente"/>
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default" value="Enviar" name="btnEnviar">Procurar</button>
+                    </span>
+                </div>
+            </div>
+        </div>    
     </form>
-
     <?php
     require 'conexao.php';
     $sql = "SELECT DISTINCT equipamentos.*, ambiente.*,modelo.*, marca.* FROM equipamentos 
@@ -24,23 +29,18 @@
     ORDER BY equipamentos.EQP_NOME
     ";
     $result = mysqli_query($con, $sql);
-    
     ?>
     <div class="row">
         <div class="col-sm-10">
             <div class="text-center">
                 <div class="table-responsive">
-                    <table  class="table table-bordered">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>Ambiente</th>
                                 <th>Marca/Modelo</th>
                                 <th>Comandos</th>
                                 <th></th>    
-                            </tr>
-                            <tr>
-                                <th><input type="text" id="txtColuna1"/></th>
-                                <th><input type="text" id="txtColuna2"/></th>
                             </tr>
                         </thead>
                         <tbody>

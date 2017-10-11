@@ -6,7 +6,7 @@ $descrição = $_POST['descricao'];
 
 $sql = "insert into comandos (CMD_DESCRI) values ('$descrição')";
 
-var_dump($sql);
+//var_dump($sql);
 $result = mysqli_query($con, $sql);
 
 if ($result == true) {
