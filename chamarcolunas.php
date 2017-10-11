@@ -16,7 +16,7 @@
         $nomemarca = $dados['MCA_NOME'];
         $nomemodelo = $dados['MOD_NOME'];
         ?>
-    <?php require './tabuleiroambiente.php';?>
+    <?php require './tabelambiente.php';?>
         <div class="row">
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">

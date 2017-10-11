@@ -50,8 +50,18 @@
                                     <td><?php echo $id_comandos ?></td>
                                     <td><?php echo $descrição; ?></td>
                                     <td class="text-right"><a href="form_alterar_comandos.php?id= <?php echo $id_comandos; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
-                                        <a href="excluir_comandos.php?id= <?php echo $id_comandos; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
-                                                    return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>                   
+                                        <?php
+                                        if ($id_comandos == '1' && $id_comandos == '2') {
+                                            ?>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <a href="excluir_comandos.php?id= <?php echo $id_comandos; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
+                                                         return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                                                <?php
+                                            }
+                                            ?>   
+                                    </td>                 
                                 </tr>
                                 <?php
                             }
