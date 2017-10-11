@@ -37,12 +37,12 @@ body,html{
         text-align: left;
         margin-left: 5%;
     }
-    header{
-        background-image: url(img/flocos.jpg);
+/*    header{
+        background-image: url(img/text.png);
         background-size: cover;
         background-position: bottom;
         height:70%; 
-    }
+    }*/
 }
 @media (max-width: 765px) {
     .icones{

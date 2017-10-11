@@ -9,6 +9,7 @@
     $sql = "SELECT DISTINCT equipamentos.*,modelo.*, marca.* FROM equipamentos INNER JOIN modelo ON equipamentos.MOD_ID = modelo.MOD_ID INNER JOIN marca ON modelo.MCA_ID = marca.MCA_ID WHERE equipamentos.AMB_ID =  $id_ambiente";
 
     $result = mysqli_query($con, $sql);
+    require './tabelambiente.php';
 
     while ($dados = mysqli_fetch_assoc($result)) {
         $ambiente = $dados ['AMB_NOME'];
@@ -16,8 +17,7 @@
         $nomemarca = $dados['MCA_NOME'];
         $nomemodelo = $dados['MOD_NOME'];
         ?>
-    <?php require './tabelambiente.php';?>
-        <div class="row">
+    <div class="row" >
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
                     <div class="caption">
@@ -41,7 +41,9 @@
                                 ?>
                             </select>
                         </div>
-                        <p><a href="#" class="btn btn-primary" role="enviar">Enviar</a></p>
+                        <div method="POST" action="enviar.php">
+                        <p><a href="#" class="btn btn-primary" value="2" role="enviar">Enviar</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -49,6 +51,7 @@
         <?php
     }
     ?>
+    
 </div>
 <?php
 require './inc_rodape.php';
