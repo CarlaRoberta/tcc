@@ -1,37 +1,43 @@
 <?php
 
-error_reporting(~E_WARNING);
+require 'conexao.php';
+$sql = "select * from modelo_comandos";
 
-$server = '192.168.0.240';
-$port = 8888;
-$input = (string)$_POST;
-if (!($sock = socket_create(AF_INET, SOCK_DGRAM, 0))) {
-    $errorcode = socket_last_error();
-    $errormsg = socket_strerror($errorcode);
+$result = mysqli_query($con, $sql);
 
-    die("Couldn't create socket: [$errorcode] $errormsg \n");
+$dados = mysqli_fetch_assoc($result);
+
+$codaprendido = $dados ['MCM_CODAPRENDIDO'];
+//var_dump($codaprendido);
+$idcomando = $dados ['CMD_ID'];
+//var_dump($idcomando);
+$idmodelo = $dados ['MOD_ID'];
+
+$server_ip = '192.168.0.108';
+$server_port = 8889;
+$beat_period = 5;
+$message = explode(",",$codaprendido);
+//var_dump($message);
+
+$socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
+for ($i = 0; $i <= 196; $i++) {
+    
+    socket_sendto($socket, $message[$i], 4, 0, $server_ip, $server_port);
 }
-
-
-//Communication loop
-//Take some input to send
-
-
-//Send the message to the server
-if (!socket_sendto($sock, $input, strlen($input), 0, $server, $port)) {
-    $errorcode = socket_last_error();
-    $errormsg = socket_strerror($errorcode);
-
-    die("Could not send data: [$errorcode] $errormsg \n");
-}
-         
-    //Now receive reply from server and print it
-    //if(socket_recv ( $sock , $reply , 2045 , MSG_WAITALL ) === FALSE)
-    //{
-    //    $errorcode = socket_last_error();
-    //    $errormsg = socket_strerror($errorcode);
-         
-     //   die("Could not receive data: [$errorcode] $errormsg \n");
-   // }
-     
-    //echo "Reply : $reply";
+    
+//$server_ip   = '127.0.0.1';
+//$server_port = 43278;
+//$beat_period = 5;
+//$message     = 'PyHB';
+//print "Sending heartbeat to IP $server_ip, port $server_portn";
+//print "press Ctrl-C to stopn";
+//if ($socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP)) {
+//  while (1) {
+//    socket_sendto($socket, $message, strlen($message), 0, $server_ip, $server_port);
+//    print "Time: " . date("%r") . "n";
+//    sleep($beat_period);
+//  }
+//} else {
+//  print("can't create socketn");
+//}
+ 
