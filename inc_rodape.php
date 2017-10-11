@@ -7,8 +7,8 @@
                     <li><a href="Singin.php">Login</a></li>
                     <li><a href="Cadastrouser.php">Cadastrar usuario</a></li>
                 </ul>
-                    <img style="max-width:27%;" src="img/facebook.png" alt=""/>
-                    <img style="max-width:27%;" src="img/gmail.png" alt=""/>
+                <img style="max-width:27%;" src="img/facebook.png" alt=""/>
+                <img style="max-width:27%;" src="img/gmail.png" alt=""/>
             </div>
         </div>
         <div class="copy_right">
