@@ -55,7 +55,7 @@
         </div>
         <div class="form-group">
             <label for="" class="col-sm-3 control-label">Comandos Capturados:</label>
-            <div class="input-group col-sm-7">          
+            <div class="input-group col-sm-5">          
                 <textarea class="form-control" rows="3"></textarea>
                 <div class="text-right">
                 </div>
