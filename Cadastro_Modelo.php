@@ -13,8 +13,8 @@
             <div class="form-group">
                 <label for="doque"class="col-sm-1 control-label"> Marca:</label>
                 <div class="col-sm-2">
-                    <select id="selectmarca" name="selectmarca" required class="form-control">
-                        <option value="ND"></option>
+                    <select id="selectmarca" name="selectmarca"  class="form-control" required>
+                        <option value="">None</option>
                         <?php
                         while ($dados = mysqli_fetch_assoc($slmarca)) {
                             $nome = $dados ['MCA_NOME'];
@@ -24,12 +24,13 @@
                             <?php
                         }
                         ?>
+
                     </select>
                 </div>
-                <label for="modelo" class="col-sm-2 control-label"> Modelo:</label>
-                <div class="input-group col-sm-5">
+                <label for="modelo" class="col-sm-1 control-label"> Modelo:</label>
+                <div class="input-group col-sm-4">
                     <div class="text-center">
-                        <input type="modelo" class="form-control" id="modelo" name="modelo" placeholder="Adicione uma novo Modelo">
+                        <input type="modelo" class="form-control" id="modelo" name="modelo" required placeholder="Adicione uma novo Modelo">
                     </div>
                 </div>
             </div>

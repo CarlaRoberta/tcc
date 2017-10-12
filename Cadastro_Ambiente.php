@@ -9,7 +9,7 @@
                 <label for="ambiente" class="col-sm-2 control-label"> Ambiente:</label>
                 <div class="input-group col-sm-5">
                     <div class="text-right">
-                        <input type="ambiente" class="form-control" id="ambiente" name="ambiente" placeholder="Adicione um novo ambiente">
+                        <input type="ambiente" class="form-control" id="ambiente" name="ambiente" placeholder="Adicione um novo ambiente" required>
                     </div>
                 </div>
             </div>

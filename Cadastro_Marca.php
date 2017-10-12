@@ -9,7 +9,7 @@
                 <label for="marca" class="col-sm-2 control-label"> Marca:</label>
                 <div class="input-group col-sm-8">
                     <div class="text-right">
-                        <input type="marca" class="form-control" id="marca" name="marca" placeholder="Adicione uma nova marca">
+                        <input type="marca" class="form-control"required id="marca" name="marca" placeholder="Adicione uma nova marca">
                     </div>
                 </div>
             </div>

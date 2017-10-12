@@ -12,8 +12,8 @@
         <div class="form-group">
             <label for="marca/modelo" class="col-sm-2 control-label"> Marca/Modelo:</label>
             <div class="input-group col-sm-2">
-                <select id="doque" name="selectmodelo" required class="form-control">
-                    <option value="ND"></option>
+                <select id="doque" name="selectmodelo" required class="form-control" required>
+                    <option value="">None</option>
                     <?php
                     while ($dados = mysqli_fetch_assoc($sql)) {
                         $nomemodelo = $dados ['MOD_NOME'];
@@ -35,7 +35,7 @@
             <label for="ambiente" class="col-sm-2 control-label"> Ambiente:</label>
             <div class="input-group col-sm-2">
                 <select id="ambiente" name="selectambiente" required class="form-control">
-                    <option value="ND"></option>
+                    <option value="">None</option>
                     <?php
                     while ($dados = mysqli_fetch_assoc($result)) {
                         $id = $dados['AMB_ID'];
@@ -52,7 +52,7 @@
             <label for="equipamento" class="col-sm-2 control-label"> Equipamento:</label>
             <div class=" col-sm-3">
                 <div class="text-center">
-                    <input type="equipamento" class="form-control" id="equipamento" name="equipamento" placeholder="Adicione uma novo Equipamento">
+                    <input type="equipamento" required class="form-control" id="equipamento" name="equipamento" placeholder="Adicione uma novo Equipamento">
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@
                                     <td><?php echo $nomedoambiente ?></td>
                                     <td class="text-right"><a href="form_alterar_equipamentos.php?id= <?php echo $id_equipamento; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
                                         <a href="excluir_equipamentos.php?id= <?php echo $id_equipamento; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
-                                                    return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>                   
+                                                        return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>                   
                                 </tr>
                             </tbody>
                             <?php
