@@ -1,18 +1,23 @@
 <?php
 
 require 'conexao.php';
-$sql = "select * from modelo_comandos";
+
+$id_enviar = $_GET["id"];
+
+$sql = "SELECT DISTINCT modelo_comandos.*,modelo.*,comandos.*
+            FROM modelo_comandos
+            INNER JOIN modelo ON modelo_comandos.MOD_ID = modelo.MOD_ID 
+            INNER JOIN comandos ON modelo_comandos.CMD_ID = comandos.CMD_ID
+            WHERE modelo_comandos.CMD_ID = $id_enviar";
 
 $result = mysqli_query($con, $sql);
 
 $dados = mysqli_fetch_assoc($result);
 
 $codaprendido = $dados ['MCM_CODAPRENDIDO'];
-//var_dump($codaprendido);
-$idcomando = $dados ['CMD_ID'];
-//var_dump($idcomando);
+var_dump($codaprendido);
 $idmodelo = $dados ['MOD_ID'];
-
+var_dump($idmodelo);
 $server_ip = '192.168.0.108';
 $server_port = 8889;
 $beat_period = 5;

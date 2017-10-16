@@ -5,7 +5,13 @@
     <?php
     require './conexao.php';
     $id_ambiente = $_GET["id"];
-    $sql = "SELECT DISTINCT equipamentos.*,modelo.*, marca.* FROM equipamentos INNER JOIN modelo ON equipamentos.MOD_ID = modelo.MOD_ID INNER JOIN marca ON modelo.MCA_ID = marca.MCA_ID WHERE equipamentos.AMB_ID =  $id_ambiente";
+    $sql = "SELECT DISTINCT modelo_comandos.*,equipamentos.*,modelo.*, marca.*,comandos.*
+            FROM modelo_comandos
+            INNER JOIN equipamentos 
+            INNER JOIN modelo ON equipamentos.MOD_ID = modelo.MOD_ID 
+            INNER JOIN marca ON modelo.MCA_ID = marca.MCA_ID
+            INNER JOIN comandos ON modelo_comandos.CMD_ID = comandos.CMD_ID
+            WHERE equipamentos.AMB_ID = $id_ambiente";
     $result = mysqli_query($con, $sql);
     require './tabelambiente.php';
     while ($dados = mysqli_fetch_assoc($result)) {
@@ -13,8 +19,10 @@
         $nomeequipamento = $dados['EQP_NOME'];
         $nomemarca = $dados['MCA_NOME'];
         $nomemodelo = $dados['MOD_NOME'];
+        $cmddescri = $dados['CMD_DESCRI'];
+        $id = $dados['CMD_ID'];
         ?>
-    <div class="row" >
+        <div class="row" >
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
                     <div class="caption">
@@ -27,19 +35,11 @@
                         <div class="form-group">
                             <select id="doque" name="selectmodelo" required class="form-control">
                                 <option value="ND"></option>
-                                <?php
-                                while ($dados = mysqli_fetch_assoc($resultcomandos)) {
-                                    $descricao = $dados ['CMD_DESCRI'];
-                                    $id = $dados['CMD_ID'];
-                                    ?>
-                                    <option value="<?php echo $id; ?>"><?php echo $descricao; ?></option>
-                                    <?php
-                                }
-                                ?>
+                                <option value="<?php echo $id; ?>"><?php echo $cmddescri; ?></option>
                             </select>
                         </div>
                         <div method="POST" action="enviar.php">
-                        <p><a href="#" class="btn btn-primary" value="2" role="enviar">Enviar</a></p>
+                            <p><a href="enviar.php?id= <?php echo $id; ?>" class=" btn btn-sm btn-primary">Enviar</a></p>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
         <?php
     }
     ?>
-    
+
 </div>
 <?php
 require './inc_rodape.php';
