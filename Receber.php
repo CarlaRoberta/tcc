@@ -14,12 +14,9 @@ if (!($sock = socket_create(AF_INET, SOCK_DGRAM, 0))) {
 
 echo "Socket created \n";
 
-while(1)
-{
     echo 'esperando';
-    //Receive some data
-    $r = socket_recvfrom($sock, $buf, $port, 0, $remote_ip, $remote_port);
-    echo "$remote_ip : $remote_port -- " . $buf;    
-    socket_sendto($sock, "OK " . $buf , 100 , 0 , $remote_ip , $remote_port);
-}
+    //$r = socket_recvfrom($sock, $buf, $port, 0, $remote_ip, $remote_port);
+    $funciona= socket_recvfrom($sock, $buf, 1, 0, $port );
+    var_dump($buf);
+    echo $funciona;    
  
