@@ -1,40 +1,26 @@
 <?php
 
-error_reporting(~E_WARNING);
+$host = "127.0.0.1";
+$port = 5003;
+// don't timeout!
+set_time_limit(0);
+// create socket
+$socket = socket_create(AF_INET, SOCK_STREAM, 0) or die("Could not create socket\n");
+// bind socket to port
+$result = socket_bind($socket, $host, $port) or die("Could not bind to socket\n");
+// start listening for connections
+$result = socket_listen($socket, 3) or die("Could not set up socket listener\n");
 
-$server = '127.0.0.1';
-$port = 8888;
 
-if (!($sock = socket_create(AF_INET, SOCK_DGRAM, 0))) {
-    $errorcode = socket_last_error();
-    $errormsg = socket_strerror($errorcode);
-
-    die("Couldn't create socket: [$errorcode] $errormsg \n");
+while(true){
+    // accept incoming connections
+    // spawn another socket to handle communication
+    $spawn = socket_accept($socket) or die("Could not accept incoming connection\n");
+    // read client input
+    $input = socket_read($spawn, 1024) or die("Could not read input\n");
+    // clean up input string
+    $input = trim($input);
+    echo "Client Message : ".$input;
+   // socket_close($spawn);
 }
-echo "Socket created \n";
-$i = 0;
-    while ($i==0){
-        //$r = socket_recvfrom($sock, $buf, $port, 0, $remote_ip, $remote_port);
-        
-    $bind = socket_bind($sock, $server,1220);
-    var_dump($bind);
-    if ($bind != false){
-        $funciona= socket_recvfrom($sock, $buf, 100, 0, $port);
-        if ($funciona !=0){
-    
-            var_dump($funciona);
-            var_dump($buf);
-             echo $funciona;
-            $i++;
-        }
-    }
-    else{
-        $errorcode = socket_last_error();
-        $errormsg = socket_strerror($errorcode);
-        die("Não consegui realizar o bind: $errorcode, $errormsg");
-    }
-    
-    
-    
-     
-    }
+socket_close($socket);
