@@ -40,3 +40,4 @@ if($fSinal == false){
     $fSinal = true;
     socket_sendto($socket,"]", 1, 0, $server_ip, $server_port);
 }
+?>
