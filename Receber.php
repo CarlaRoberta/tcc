@@ -1,16 +1,21 @@
 <?php
-
-$host = "192.168.0.108";
-$port = 8888;
-// don't timeout!
-set_time_limit(0);
-// create socket
-$sock = socket_create(AF_INET, SOCK_STREAM, 0) or die("Could not create socket\n");
-// bind socket to port
-var_dump($port);
-var_dump($host);
+ 
+//Reduce errors
+error_reporting(~E_WARNING);
+ 
+//Create a UDP socket
+if(!($sock = socket_create(AF_INET, SOCK_DGRAM, 0)))
+{
+    $errorcode = socket_last_error();
+    $errormsg = socket_strerror($errorcode);
+     
+    die("Couldn't create socket: [$errorcode] $errormsg \n");
+}
+ 
+echo "Socket created \n";
+ 
 // Bind the source address
-if( !socket_bind($sock, $host , $port) )
+if( !socket_bind($sock, "0.0.0.0" , 9999) )
 {
     $errorcode = socket_last_error();
     $errormsg = socket_strerror($errorcode);
@@ -19,27 +24,18 @@ if( !socket_bind($sock, $host , $port) )
 }
  
 echo "Socket bind OK \n";
-// start listening for connections
-if(!socket_listen($socket, 3))
-        {
-    $errorcode = socket_last_error();
-    $errormsg = socket_strerror($errorcode);
+ 
+//Do some communication, this loop can handle multiple clients
+while(1)
+{
+    echo "Waiting for data ... \n";
      
-    die("Could not socket : [$errorcode] $errormsg \n");
+    //Receive some data
+    $r = socket_recvfrom($sock, $buf, 512, 0, $remote_ip, $remote_port);
+    echo "$remote_ip : $remote_port -- " . $buf;
+     
+    //Send back the data to the client
+    socket_sendto($sock, "OK " . $buf , 100 , 0 , $remote_ip , $remote_port);
 }
  
-echo "Socket listen OK \n";
-
-
-while(true){
-    // accept incoming connections
-    // spawn another socket to handle communication
-    $spawn = socket_accept($socket) or die("Could not accept incoming connection\n");
-    // read client input
-    $input = socket_read($spawn, 1024) or die("Could not read input\n");
-    // clean up input string
-    $input = trim($input);
-    echo "Client Message : ".$input;
-   // socket_close($spawn);
-}
-socket_close($socket);
+socket_close($sock);
