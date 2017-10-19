@@ -1,11 +1,17 @@
 <?php
 
-if (!$sock_L = socket_create_listen(4553, 4)) {
-    echo"Erro ao criar lista";
+if (!$sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP)) {
+    echo "foi";
     $erro = socket_last_error();
     $erroS = socket_strerror($erro);
     var_dump($erroS);
 } else {
+    if (!socket_connect($sock, "19.168.0.108")) {
+        echo "deu erro";
+        $erro = socket_last_error();
+        $erroS = socket_strerror($erro);
+        var_dump($erroS);
+    } else {
         if (!$sock_B = socket_bind($sock, "192.168.0.108")) {
             echo "Erro ao dar bind";
             $erro = socket_last_error();
@@ -48,3 +54,4 @@ if (!$sock_L = socket_create_listen(4553, 4)) {
             }
         }
     }
+}  
