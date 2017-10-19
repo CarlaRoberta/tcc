@@ -1,5 +1,4 @@
 <?php
-
 require 'conexao.php';
 
 $id_enviar = $_GET["id"];
@@ -15,29 +14,42 @@ $result = mysqli_query($con, $sql);
 $dados = mysqli_fetch_assoc($result);
 
 $codaprendido = $dados ['MCM_CODAPRENDIDO'];
-var_dump($codaprendido);
+//var_dump($codaprendido);
 $idmodelo = $dados ['MOD_ID'];
-var_dump($idmodelo);
+//var_dump($idmodelo);
 $server_ip = '192.168.0.108';
 $server_port = 8898;
 $beat_period = 5;
-$message = explode(",",$codaprendido);
+$message = explode(",", $codaprendido);
 //var_dump($message);
 
 $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
 $cSinal = false;
 $fSinal = false;
-if($cSinal == false){
+$foi = FALSE;
+if ($cSinal == false) {
     $cSinal = true;
     socket_sendto($socket, "[", 1, 0, $server_ip, $server_port);
 }
 for ($i = 0; $i <= 196; $i++) {
-    
+
     socket_sendto($socket, $message[$i], 4, 0, $server_ip, $server_port);
     sleep(0.1);
+
+    $foi = TRUE;
 }
-if($fSinal == false){
+if ($fSinal == false) {
     $fSinal = true;
-    socket_sendto($socket,"]", 1, 0, $server_ip, $server_port);
+    socket_sendto($socket, "]", 1, 0, $server_ip, $server_port);
+}
+if ($foi == TRUE) {
+        require './inc_menu.php'; 
+?>
+    <div class="container"> 
+        <div class="alert alert-success" role="alert">Comando enviado com Sucesso</div> 
+        <?php require './tabelambiente.php'; ?>
+    </div>
+    <?php
+require './inc_rodape.php';
 }
 ?>
