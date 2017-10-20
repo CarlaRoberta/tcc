@@ -41,7 +41,7 @@
                         $descricao = $dados ['CMD_DESCRI'];
                         $id = $dados['CMD_ID'];
                         ?>
-                    <option value="<?php echo $id; ?>"><?php echo $descricao; ?></option>
+                        <option value="<?php echo $id; ?>"><?php echo $descricao; ?></option>
                         <?php
                     }
                     ?>
@@ -55,11 +55,32 @@
         </div>
         <div class="form-group">
             <label for="" class="col-sm-3 control-label">Comandos Capturados:</label>
+            <?php
+                error_reporting(E_ALL | E_STRICT);
+
+                $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
+
+                socket_bind($socket, '192.168.0.109', 8898);
+
+                $from = "";
+                $port = 8898;
+                $buf = '';
+                $l = '';
+                while ($buf != "a") {
+                    socket_recvfrom($socket, $buf, 12, 0, $from, $port);
+                    $l .= ', ';
+                    $l .= $buf;
+                }
+            
+            ?>
             <div class="input-group col-sm-5">          
-                <textarea class="form-control" rows="3" ></textarea>
                 <div class="text-right">
+                    <textarea  type="text" id="inputHelpBlock" aria-describedby="helpBlock" class="col-sm-10" disabled="disabled"><?php echo $l ?></textarea>
                 </div>
             </div>
+            <?php
+            socket_close($socket);
+            ?>
         </div>
         <div class="form-group">
             <div class="input-group col-sm-5">
@@ -86,9 +107,9 @@
                             <tr>
                                 <td></td>
                                 <td></td>  
-                                <td class="text-right"><a href="form_alterar_apredizado.php?id= <?php echo $id_equipamento; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
-                                                       <a href="excluir_aprendizado.php?id= <?php echo $id_equipamento; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
-                                                        return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>
+                                <td class="text-right"><a href="form_alterar_apredizado.php?id= <?php // echo $id_equipamento; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
+                                    <a href="excluir_aprendizado.php?id= <?php // echo $id_equipamento;  ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
+                                                return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>
                             </tr>
                         </tbody>
                     </table>
