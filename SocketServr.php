@@ -6,20 +6,14 @@ if (!$sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP)) {
     $erroS = socket_strerror($erro);
     var_dump($erroS);
 } else {
-    if (!socket_connect($sock, "19.168.0.108")) {
-        echo "deu erro";
-        $erro = socket_last_error();
-        $erroS = socket_strerror($erro);
-        var_dump($erroS);
-    } else {
-        if (!$sock_B = socket_bind($sock, "192.168.0.108")) {
+        if (!$sock_B = socket_bind($sock, "192.168.0.108", 8888)) {
             echo "Erro ao dar bind";
             $erro = socket_last_error();
             $erroS = socket_strerror($erro);
             var_dump($erroS);
         } else {
 
-            if (!socket_listen($socket)) {
+            if (!socket_listen($sock)) {
                 echo "erro listen";
                 $erro = socket_last_error();
                 $erroS = socket_strerror($erro);
@@ -33,7 +27,7 @@ if (!$sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP)) {
                     $erroS = socket_strerror($erro);
                     var_dump($erroS);
                 } else {
-                    if (!socket_read($sock, 4)) {
+                    if (!socket_read($sock_A, 4)) {
                         echo "Erro ao ler o tamanho";
                         $erro = socket_last_error();
                         $erroS = socket_strerror($erro);
@@ -54,4 +48,3 @@ if (!$sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP)) {
             }
         }
     }
-}  
