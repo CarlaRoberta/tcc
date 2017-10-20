@@ -8,8 +8,7 @@ socket_bind($socket, '192.168.0.105', 8888);
 
 $from = "";
 $port = 8888;
-while(1){
 socket_recvfrom($socket, $buf, 12, 0, $from, $port);
 echo "Received $buf ";
-}
+
 ?>
