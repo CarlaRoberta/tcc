@@ -54,6 +54,11 @@
             </div>
         </div>
         <div class="form-group">
+            <div class="input-group col-sm-8">
+                <div class="text-right">
+                    <a value="" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-refresh"> </span>  </a>
+                </div>
+            </div>
             <label for="" class="col-sm-3 control-label">Comandos Capturados:</label>
             <?php
                 error_reporting(E_ALL | E_STRICT);
@@ -75,7 +80,7 @@
             ?>
             <div class="input-group col-sm-5">          
                 <div class="text-right">
-                    <textarea  type="text" id="inputHelpBlock" aria-describedby="helpBlock" class="col-sm-10" disabled="disabled"><?php echo $l ?></textarea>
+                    <textarea  type="text" id="inputHelpBlock" aria-describedby="helpBlock" class="col-sm-12" disabled="disabled"><?php echo $l ?></textarea>
                 </div>
             </div>
             <?php
