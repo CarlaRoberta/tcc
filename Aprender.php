@@ -8,7 +8,16 @@
     $sqlmarcamodelo = "SELECT DISTINCT marca.*, modelo.* FROM marca INNER JOIN modelo ON marca.MCA_ID = modelo.MCA_ID ORDER BY marca.MCA_NOME";
     $sql = mysqli_query($con, $sqlmarcamodelo);
     ?>
-    <form action="inserir_comandos.php" method="POST">
+
+    <form action="Aprender.php" method="GET">
+        <input type="submit" name="capturar" value="Capturar Codigo do DC" class="btn btn-sm btn-warning">
+    </form>
+    <?php
+    if (isset($_GET["capturar"])) {
+        include 'Receber.php';
+    }
+    ?>
+    <form action="inserir_codfabri.php" method="POST">
         <div class="form-group">
             <label for="marca/modelo" class="col-sm-3 control-label"> Marca/Modelo:</label>
             <div class="input-group col-sm-2">
@@ -54,38 +63,12 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="input-group col-sm-8">
-                <div class="text-right">
-                    <a value="" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-refresh"> </span>  </a>
-                </div>
-            </div>
             <label for="" class="col-sm-3 control-label">Comandos Capturados:</label>
-            <?php
-                error_reporting(E_ALL | E_STRICT);
-
-                $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
-
-                socket_bind($socket, '192.168.0.109', 8898);
-
-                $from = "";
-                $port = 8898;
-                $buf = '';
-                $l = '';
-                while ($buf != "a") {
-                    socket_recvfrom($socket, $buf, 12, 0, $from, $port);
-                    $l .= ', ';
-                    $l .= $buf;
-                }
-            
-            ?>
             <div class="input-group col-sm-5">          
                 <div class="text-right">
-                    <textarea  type="text" id="inputHelpBlock" aria-describedby="helpBlock" class="col-sm-12" disabled="disabled"><?php echo $l ?></textarea>
+                    <textarea value="<?php echo $l; ?>" type="text" id="inputHelpBlock" aria-describedby="helpBlock"  class="col-sm-12" disabled="disabled"><?php echo $l ?></textarea>
                 </div>
             </div>
-            <?php
-            socket_close($socket);
-            ?>
         </div>
         <div class="form-group">
             <div class="input-group col-sm-5">
@@ -112,8 +95,8 @@
                             <tr>
                                 <td></td>
                                 <td></td>  
-                                <td class="text-right"><a href="form_alterar_apredizado.php?id= <?php // echo $id_equipamento; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
-                                    <a href="excluir_aprendizado.php?id= <?php // echo $id_equipamento;  ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
+                                <td class="text-right"><a href="form_alterar_apredizado.php?id= <?php // echo $id_equipamento;      ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
+                                    <a href="excluir_aprendizado.php?id= <?php // echo $id_equipamento;      ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
                                                 return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>
                             </tr>
                         </tbody>
