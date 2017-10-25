@@ -19,8 +19,6 @@
                 <label for="descricao" class="col-sm-2 control-label"> Descrição:</label>
                 <div class="input-group col-sm-10">          
                     <textarea class="form-control" rows="3" value="descricao" name="descricao"  id="descricao" ></textarea>
-                    <div class="text-right">
-                    </div>
                 </div>
             </div>
             <div class="form-group">

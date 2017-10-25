@@ -6,7 +6,8 @@
     <?php
     require 'conexao.php';
     $sqlmarcamodelo = "SELECT DISTINCT marca.*, modelo.* FROM marca INNER JOIN modelo ON marca.MCA_ID = modelo.MCA_ID ORDER BY marca.MCA_NOME";
-    $sql = mysqli_query($con, $sqlmarcamodelo);
+    $resulmarca = mysqli_query($con, $sqlmarcamodelo);
+    
     ?>
 
     <form action="Aprender.php" method="GET">
@@ -22,9 +23,9 @@
             <label for="marca/modelo" class="col-sm-3 control-label"> Marca/Modelo:</label>
             <div class="input-group col-sm-2">
                 <select id="doque" name="selectmodelo" required class="form-control">
-                    <option value="ND"></option>
+                    <option value=""></option>
                     <?php
-                    while ($dados = mysqli_fetch_assoc($sql)) {
+                    while ($dados = mysqli_fetch_assoc($resulmarca)) {
                         $nomemodelo = $dados ['MOD_NOME'];
                         $id = $dados['MOD_ID'];
                         $nomemarca = $dados['MCA_NOME'];
@@ -44,7 +45,7 @@
             <label for="comandos" class="col-sm-3 control-label"> Comandos:</label>
             <div class="input-group col-sm-5">
                 <select id="comandos" name="comandos" required class="form-control">
-                    <option value="ND"></option>
+                    <option value=""></option>
                     <?php
                     while ($dados = mysqli_fetch_assoc($resultcomandos)) {
                         $descricao = $dados ['CMD_DESCRI'];
@@ -65,8 +66,8 @@
         <div class="form-group">
             <label for="" class="col-sm-3 control-label">Comandos Capturados:</label>
             <div class="input-group col-sm-5">          
-                <div class="text-right">
-                    <textarea value="<?php echo $l; ?>" type="text" id="inputHelpBlock" aria-describedby="helpBlock"  class="col-sm-12" disabled="disabled"><?php echo $l ?></textarea>
+                <div class="text-right" >
+                    <textarea name="comandocapturados" type="text" id="inputHelpBlock" aria-describedby="helpBlock"  class="col-sm-12" disabled="disabled"><?php echo $l ?></textarea>
                 </div>
             </div>
         </div>
@@ -79,6 +80,14 @@
             </div>
         </div>    
     </form>
+    <?php
+     $sql = "SELECT DISTINCT modelo_comandos.*,modelo.*, marca.*,comandos.* FROM modelo_comandos
+            INNER JOIN modelo ON modelo_comandos.MOD_ID = modelo.MOD_ID 
+            INNER JOIN marca ON modelo.MCA_ID = marca.MCA_ID 
+            INNER JOIN comandos ON modelo_comandos.CMD_ID = comandos.CMD_ID
+            ORDER BY modelo_comandos.MCM_CODAPRENDIDO";
+    $result = mysqli_query($con, $sql);
+    ?>
     <div class="row">
         <div class="col-sm-10">
             <div class="text-center">
@@ -86,19 +95,29 @@
                     <table  class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Marca/Modelo</th>
                                 <th>Descrição</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>  
-                                <td class="text-right"><a href="form_alterar_apredizado.php?id= <?php // echo $id_equipamento;      ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
-                                    <a href="excluir_aprendizado.php?id= <?php // echo $id_equipamento;      ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
-                                                return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>
-                            </tr>
+                            <?php
+                            while ($dados = mysqli_fetch_assoc($result)) {
+                                $nomemarca = $dados ['MCA_NOME'];
+                                $nomemodelo = $dados ['MOD_NOME'];
+                                $descricao=$dados['CMD_DESCRI'];
+                                $codfabri = $dados ['MCM_CODAPRENDIDO'];
+                                ?>
+                                <tr>
+                                    <td><?php echo $nomemarca?> - <?php echo $nomemodelo ?></td>
+                                    <td><?php echo $descricao; ?></td>
+                                    <td class="text-right"><a href="form_alterar_aprender.php?id= <?php echo $codfabri; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
+                                        <a href="excluir_aprender.php?id= <?php echo $codfabri; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
+                                                    return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>                   
+                                </tr>
+                                <?php
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>

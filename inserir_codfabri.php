@@ -2,18 +2,17 @@
 
 require 'conexao.php';
 
-$equipamento = $_POST['equipamento'];
-$ambiente = $_POST['ambiente'];
-$selectmodelo = $_POST['selectmodelo'];
-$selectambiente =$_POST['selectambiente'];
+$marcamodelo = $_POST['selectmodelo'];
+$comando = $_POST['comandos'];
+$codfabri =$_POST['comandocapturados'];
 
-$sql = "insert into equipamentos (EQP_NOME,MOD_ID,AMB_ID) values ('$equipamento','$selectmodelo','$selectambiente')";
+$sql = "insert into modelo_comandos (MOD_ID,CMD_ID,MCM_CODAPRENDIDO) values ('$marcamodelo','$comando','$codfabri')";
 
 //var_dump($sql);
 $result = mysqli_query($con, $sql);
 
 if ($result == true) {
-    require 'Cadastro_Equipamento.php';
+    echo 'foi';
 } else {
     if (!mysqli_query($con, $sql)) {
         $erro = mysqli_error($con);
