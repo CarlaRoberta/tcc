@@ -12,7 +12,7 @@ $sql = "insert into modelo_comandos (MOD_ID,CMD_ID,MCM_CODAPRENDIDO) values ('$m
 $result = mysqli_query($con, $sql);
 
 if ($result == true) {
-    echo 'foi';
+    require './Aprender.php';;
 } else {
     if (!mysqli_query($con, $sql)) {
         $erro = mysqli_error($con);

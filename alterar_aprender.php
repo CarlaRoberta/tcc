@@ -5,7 +5,7 @@ $marcamodelo = $_POST['selectmodelo'];
 $comando = $_POST['comandos'];
 $codfabri =$_POST['comandocapturados'];
 
-$sql = "UPDATE modelo_comandos SET MOD_ID = '$marcamodelo',CMD_ID='$comando' WHERE MCM_CODAPRENDIDO = '$codfabri'";
+$sql = "UPDATE modelo_comandos SET MOD_ID = '$marcamodelo',CMD_ID='$comando', MCM_CODAPRENDIDO = '$codfabri'";
 $result = mysqli_query($con, $sql);
 
 if ($result == true) {

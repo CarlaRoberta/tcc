@@ -19,8 +19,6 @@
         $nomeequipamento = $dados['EQP_NOME'];
         $nomemarca = $dados['MCA_NOME'];
         $nomemodelo = $dados['MOD_NOME'];
-        $cmddescri = $dados['CMD_DESCRI'];
-        $id = $dados['CMD_ID'];
         ?>
         <div class="row" >
             <div class="col-sm-6 col-md-4">
@@ -31,6 +29,9 @@
                         <?php
                         $sqlcomandos = "select * from comandos";
                         $resultcomandos = mysqli_query($con, $sqlcomandos);
+                        $dados = mysqli_fetch_assoc($resultcomandos);
+                        $cmddescri = $dados['CMD_DESCRI'];
+                        $id = $dados['CMD_ID'];
                         ?>
                         <div class="form-group">
                             <select id="doque" name="selectmodelo" required class="form-control">
