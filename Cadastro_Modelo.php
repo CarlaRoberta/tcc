@@ -86,6 +86,12 @@
             </div>
         </div>
     </div>
+    <?php
+    $sqlc = "SELECT modelo_comandos.*,comandos.* FROM modelo_comandos
+                INNER JOIN comandos ON modelo_comandos.CMD_ID = comandos.CMD_ID
+                ORDER BY modelo_comandos.CMD_ID";
+    $resultc= mysqli_query($con, $sqlc);
+    ?>
     <h1 class="text-center" style="">Comandos Capturados.</h1>
     <div class="row">
         <div class="col-sm-10">
@@ -100,13 +106,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>                
-                                <td class="text-right"><a  href="form_alterar_comandos.php?id= <?php echo $id_comandos; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
-                                    <a href="excluir_comandos.php?id= <?php echo $id_comandos; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
-                                                return false;"  class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>                   
-                            </tr>
+                            <?php
+                            while ($dados = mysqli_fetch_assoc($resultc)) {
+                                $descricao = $dados['CMD_DESCRI'];
+                                $codfabri = $dados ['MCM_CODAPRENDIDO'];
+                                if($codfabri != NULL){
+                                    $msg="Codigo está gravado corretamente porém é muito grande";
+                                }
+                                ?>
+                                <tr>
+                                    <td><?php echo $descricao; ?></td>
+                                    <td><?php echo $msg; ?></td>
+                                    <td class="text-right"><a href="form_alterar_aprender.php?id=<?php echo $codfabri; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
+                                        <a href="excluir_aprender.php?id=<?php echo $codfabri; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
+                                                    return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>                   
+                                </tr>
+                                <?php
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>

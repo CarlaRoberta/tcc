@@ -79,8 +79,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Equipamentos</th>
-                                <th>Modelo</th>
-                                <th>Marca</th>
+                                <th>Marca/Modelo</th>
                                 <th>Ambiente</th>
                                 <th></th>
                             </tr>
@@ -97,8 +96,7 @@
                                 <tr>
                                     <td><?php echo $id_equipamento ?></td>
                                     <td><?php echo $nomeequipamento ?></td>
-                                    <td><?php echo $nomemodelo ?></td>
-                                    <td><?php echo $nomemarca ?></td>
+                                    <td><?php echo $nomemarca ?> - <?php echo $nomemodelo ?></td>
                                     <td><?php echo $nomedoambiente ?></td>
                                     <td class="text-right"><a href="form_alterar_equipamentos.php?id= <?php echo $id_equipamento; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a>
                                         <a href="excluir_equipamentos.php?id= <?php echo $id_equipamento; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))

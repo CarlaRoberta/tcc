@@ -61,17 +61,13 @@
                     <a href="Comandos.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-right"> </span>  </a>
                 </div>
             </div>
-            <?php
-            if ($l != NULL) {
-                echo '<h1 style="color: red;">NÃO É PARA EDITAR O CAMPO DE TEXTO ONDE ESTÁ O CÓDIGO!</h1>';
-            }
-            ?>
+           
         </div>
         <div class="form-group">
             <label for="" class="col-sm-3 control-label">Comandos Capturados:</label>
-            <div class="input-group col-sm-5" disabled="disabled">          
+            <div class="input-group col-sm-5" disabled="disabled" >          
                 <div class="text-right" >
-                    <textarea name="comandocapturados" type="text" id="inputHelpBlock" aria-describedby="helpBlock"  class="col-sm-12"><?php echo $l ?></textarea>
+                    <textarea name="comandocapturados" type="text" readonly="readonly" id="inputHelpBlock" aria-describedby="helpBlock"  class="col-sm-12"><?php echo $l ?></textarea>
                 </div>
             </div>
         </div>

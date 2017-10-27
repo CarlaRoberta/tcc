@@ -54,3 +54,10 @@
 <?php
 require './inc_rodape.php';
 ?>
+<!--SELECT DISTINCT modelo_comandos.*,equipamentos.*,modelo.*, marca.*,comandos.*
+            FROM modelo_comandos
+            INNER JOIN equipamentos 
+            INNER JOIN modelo ON equipamentos.MOD_ID = modelo.MOD_ID 
+            INNER JOIN marca ON modelo.MCA_ID = marca.MCA_ID
+            INNER JOIN comandos ON modelo_comandos.CMD_ID = comandos.CMD_ID
+            WHERE equipamentos.AMB_ID=2 AND modelo_comandos.MOD_ID = modelo.MOD_ID = 4-->
