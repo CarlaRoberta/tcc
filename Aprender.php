@@ -7,7 +7,6 @@
     require 'conexao.php';
     $sqlmarcamodelo = "SELECT DISTINCT marca.*, modelo.* FROM marca INNER JOIN modelo ON marca.MCA_ID = modelo.MCA_ID ORDER BY marca.MCA_NOME";
     $resulmarca = mysqli_query($con, $sqlmarcamodelo);
-    
     ?>
 
     <form action="Aprender.php" method="GET">
@@ -27,10 +26,10 @@
                     <?php
                     while ($dados = mysqli_fetch_assoc($resulmarca)) {
                         $nomemodelo = $dados ['MOD_NOME'];
-                        $id = $dados['MOD_ID'];
+                        $modeloid = $dados['MOD_ID'];
                         $nomemarca = $dados['MCA_NOME'];
                         ?>
-                        <option value="<?php echo $id; ?>"><?php echo $nomemarca; ?> - <?php echo $nomemodelo; ?></option>
+                        <option value="<?php echo $modeloid; ?>"><?php echo $nomemarca; ?> - <?php echo $nomemodelo; ?></option>
                         <?php
                     }
                     ?>
@@ -49,25 +48,30 @@
                     <?php
                     while ($dados = mysqli_fetch_assoc($resultcomandos)) {
                         $descricao = $dados ['CMD_DESCRI'];
-                        $id = $dados['CMD_ID'];
+                        $idcomando = $dados['CMD_ID'];
                         ?>
-                        <option value="<?php echo $id; ?>"><?php echo $descricao; ?></option>
+                        <option value="<?php echo $idcomando; ?>"><?php echo $descricao; ?></option>
                         <?php
                     }
                     ?>
                 </select>
             </div>
             <div class="input-group col-sm-8">
-                <div class="text-right">
+                <div  class="text-right">
                     <a href="Comandos.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-right"> </span>  </a>
                 </div>
             </div>
+            <?php
+            if ($l != NULL) {
+                echo '<h1 style="color: red;">NÃO É PARA EDITAR O CAMPO DE TEXTO ONDE ESTÁ O CÓDIGO!</h1>';
+            }
+            ?>
         </div>
         <div class="form-group">
             <label for="" class="col-sm-3 control-label">Comandos Capturados:</label>
-            <div class="input-group col-sm-5">          
+            <div class="input-group col-sm-5" disabled="disabled">          
                 <div class="text-right" >
-                    <textarea name="comandocapturados" type="text" id="inputHelpBlock" aria-describedby="helpBlock"  class="col-sm-12" disabled="disabled"><?php echo $l ?></textarea>
+                    <textarea name="comandocapturados" type="text" id="inputHelpBlock" aria-describedby="helpBlock"  class="col-sm-12"><?php echo $l ?></textarea>
                 </div>
             </div>
         </div>
@@ -81,7 +85,7 @@
         </div>    
     </form>
     <?php
-     $sql = "SELECT DISTINCT modelo_comandos.*,modelo.*, marca.*,comandos.* FROM modelo_comandos
+    $sql = "SELECT DISTINCT modelo_comandos.*,modelo.*, marca.*,comandos.* FROM modelo_comandos
             INNER JOIN modelo ON modelo_comandos.MOD_ID = modelo.MOD_ID 
             INNER JOIN marca ON modelo.MCA_ID = marca.MCA_ID 
             INNER JOIN comandos ON modelo_comandos.CMD_ID = comandos.CMD_ID
@@ -105,14 +109,14 @@
                             while ($dados = mysqli_fetch_assoc($result)) {
                                 $nomemarca = $dados ['MCA_NOME'];
                                 $nomemodelo = $dados ['MOD_NOME'];
-                                $descricao=$dados['CMD_DESCRI'];
+                                $descricao = $dados['CMD_DESCRI'];
                                 $codfabri = $dados ['MCM_CODAPRENDIDO'];
                                 ?>
                                 <tr>
-                                    <td><?php echo $nomemarca?> - <?php echo $nomemodelo ?></td>
+                                    <td><?php echo $nomemarca ?> - <?php echo $nomemodelo ?></td>
                                     <td><?php echo $descricao; ?></td>
-                                    <td class="text-right"><a href="form_alterar_aprender.php?id= <?php echo $codfabri; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
-                                        <a href="excluir_aprender.php?id= <?php echo $codfabri; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
+                                    <td class="text-right"><a href="form_alterar_aprender.php?id=<?php echo $codfabri; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
+                                        <a href="excluir_aprender.php?id=<?php echo $codfabri; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
                                                     return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>                   
                                 </tr>
                                 <?php

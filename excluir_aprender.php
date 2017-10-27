@@ -1,12 +1,12 @@
 <?php
 require './conexao.php';
-$comando = $_GET["comando"];
-
-$sql = "DELETE FROM modelo_comandos WHERE MCM_CODAPRENDIDO = '$comando'";
+$comando=$_GET["id"];
+//var_dump($comando);
+$sql = "DELETE FROM modelo_comandos WHERE MCM_CODAPRENDIDO='$comando'";
 //var_dump($sql);
 
 $result = mysqli_query($con, $sql);
-
+//var_dump($result);
 if ($result == true) {
     require './Aprender.php';
 } else {
