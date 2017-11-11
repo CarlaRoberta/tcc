@@ -15,7 +15,7 @@
         <div class="container">
             <form class="form-signin" action="inserir_pessoas.php" method="POST" >
                 <img src="img/login.png" alt=""/>
-                <h2 style="color: white;">Cadastro</h2>
+                <h2 style="color: white;">Cadastro de Usuários</h2>
                 <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
                 <label for="email" class="sr-only">Email address</label>
                 <input type="email" id="email" name="email" class="form-control" placeholder="Email" required autofocus>

@@ -5,7 +5,7 @@
 
     $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
 
-    socket_bind($socket, '192.168.0.107', 8898);
+    socket_bind($socket, '192.168.1.162', 8898);
 
     $from = "";
     $port = 8898;

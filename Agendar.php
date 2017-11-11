@@ -76,15 +76,17 @@
                     <table  class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Descrição</th>
+                                <th>Data/Hora</th>
+                                <th>Equipamentos </th>
+                                <th>Ambiente</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td></td>
-                                <td></td>                
+                                <td></td>
+                                <td></td>
                             </tr>
                         </tbody>
                     </table>

@@ -15,12 +15,12 @@
         <div class="container">
             <form class="form-signin" action="verificar.php" method="POST" >
                 <img src="img/login.png" alt=""/>
-                <h2 class="form-signin-heading">Sign in</h2>
+                <h2 class="form-signin-heading">Autenticação de Usuários</h2>
                 <label for="email" class="sr-only">Email address</label>
                 <input type="email" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
                 <label for="senha" class="sr-only">Password</label>
                 <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required>
-                <a href="Cadastrouser.php">Cadastro</a>
+                <a href="Cadastro_Usuarios.php">Cadastro</a>
                 <div class="form-group">
                     <div class="enviar_apagar" >
                         <div class="text-center">
