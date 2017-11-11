@@ -58,7 +58,7 @@
             </div>
             <div class="input-group col-sm-8">
                 <div  class="text-right">
-                    <a href="Comandos.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-right"> </span>  </a>
+                    <a href="Cadastro_Descricao.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-right"> </span>  </a>
                 </div>
             </div>
            

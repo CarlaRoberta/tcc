@@ -26,7 +26,7 @@
                     </div>
                     <div id="nav" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav"> 
-                            <li> <a href="Home.php" >Home</a></li>
+                            <li> <a href="Tela_Principal.php" >Home</a></li>
                             <li> <a href="Controle.php" >Controle</a> </li>
                             <li> <a href="Cadastro_Marca.php">Cadastro</a> </li>
                             <li> <a href="Agendar.php">Agendamento</a> </li>
