@@ -28,7 +28,7 @@
     $descrição = $dados ['CMD_DESCRI'];
     ?>
     <div class="bloco">
-        <form action="alterar_comando.php" method="POST">
+        <form action="alterar_descricao.php" method="POST">
             <input type="hidden" name="id_comandos" value="<?php echo $id_comandos; ?>"/>
             <div class="form-group">
                 <label for="descricao" class="col-sm-2 control-label"> Descrição:</label>

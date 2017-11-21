@@ -9,7 +9,7 @@
     $resulmarca = mysqli_query($con, $sqlmarcamodelo);
     ?>
 
-    <form action="Aprender.php" method="GET">
+    <form action="Cadastro_Comandos.php" method="GET">
         <input type="submit" name="capturar" value="Capturar Codigo do DC" class="btn btn-sm btn-warning">
     </form>
     <?php

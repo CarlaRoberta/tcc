@@ -27,20 +27,12 @@ $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
 $cSinal = false;
 $fSinal = false;
 $foi = FALSE;
-if ($cSinal == false) {
-    $cSinal = true;
-    socket_sendto($socket, "[", 1, 0, $server_ip, $server_port);
-}
 for ($i = 0; $i <= 196; $i++) {
 
     socket_sendto($socket, $message[$i], 4, 0, $server_ip, $server_port);
     sleep(0.1);
 
     $foi = TRUE;
-}
-if ($fSinal == false) {
-    $fSinal = true;
-    socket_sendto($socket, "]", 1, 0, $server_ip, $server_port);
 }
 if ($foi == TRUE) {
         require './inc_menu.php'; 

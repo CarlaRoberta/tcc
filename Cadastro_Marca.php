@@ -1,28 +1,26 @@
 <header>
     <?php require './inc_menu.php'; ?>
 </header>
+<?php require './inc_menuLateral.php'; ?>
 <div class="container">
-    <?php require './inc_menuLateral.php'; ?>
-    <div class="bloco">
         <form action="inseir_cadastromarca.php" method="POST">
             <div class="form-group">
-                <label for="marca" class="col-sm-2 control-label"> Marca:</label>
+                <label for="marca" class="col-sm-1 control-label"> Marca:</label>
                 <div class="input-group col-sm-8">
                     <div class="text-right">
                         <input type="marca" class="form-control"required id="marca" name="marca" placeholder="Adicione uma nova marca">
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="input-group col-sm-5">
+            <div class="form-group" >
+                <div class="input-group col-sm-2">
                     <div class="text-right">
                         <input type="submit" value="Gravar" id="botao_submit" class="btn btn-info" >
                         <input type="reset" value="Limpar" id="botao_limpar" class="btn btn-info" >
                     </div>
                 </div>
-            </div>    
+            </div>      
         </form>
-    </div>
     <?php
     require 'conexao.php';
     $sql = "select * from marca";
@@ -52,7 +50,7 @@
                                     <td><?php echo $nome; ?></td>
                                     <td class="text-right"><a href="form_alterar_marca.php?id= <?php echo $id_marca; ?>" class=" btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
                                         <a href="excluir_marca.php?id= <?php echo $id_marca; ?>" onclick="if (!confirm('Tem certeza que deseja excluir?'))
-                                                    return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>                   
+                                                        return false;" class=" btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>                   
                                 </tr>
                                 <?php
                             }

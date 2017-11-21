@@ -7,7 +7,7 @@ $sql = "UPDATE comandos SET CMD_DESCRI = '$descricao' WHERE CMD_ID = '$id_comand
 $result = mysqli_query($con, $sql);
 
 if ($result == true) {
-    require 'Comandos.php';
+    require 'Cadastro_Descricao.php';
    
 } else {
     if (!mysqli_query($con, $sql)) {

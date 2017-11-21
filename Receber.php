@@ -5,13 +5,13 @@
 
     $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
 
-    socket_bind($socket, '192.168.1.162', 8898);
+    socket_bind($socket, '10.131.75.222', 8898);
 
     $from = "";
     $port = 8898;
     $buf = '';
     $l = '';
-    while ($buf != "a") {
+    while ($buf != "]") {
         socket_recvfrom($socket, $buf, 12, 0, $from, $port);
         $l .= ',';
         $l .= $buf;

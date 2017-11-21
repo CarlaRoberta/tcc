@@ -10,7 +10,7 @@ $sql = "insert into comandos (CMD_DESCRI) values ('$descrição')";
 $result = mysqli_query($con, $sql);
 
 if ($result == true) {
-    require 'Comandos.php';
+    require 'Cadastro_Descricao.php';
    
 } else {
     if (!mysqli_query($con, $sql)) {
