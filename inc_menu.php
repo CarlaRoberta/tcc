@@ -34,11 +34,4 @@
                     </div>
                 </div>
             </nav> 
-           
-            <div class="icones">
-                <img style="max-width:7%; " src="img/Instagram.png" alt=""/>
-                <img style="max-width:7%;" src="img/facebook.png" alt=""/>
-                <img style="max-width:7%;" src="img/gmail.png" alt=""/>
-                <img style="max-width:7%;" src="img/whatsap.png" alt=""/>
-            </div>
         </ul>
