@@ -7,7 +7,6 @@ $id_modelo = $_POST["id_modelo"];
 $selectmarca = $_POST['selectmarca'];
 
 $sql = "UPDATE modelo SET MOD_NOME = '$modelo', MOD_SMA = '$selectmarca' WHERE MOD_ID = $id_modelo";
-//var_dump($sql);
 $result = mysqli_query($con, $sql);
 
 if ($result == true) {

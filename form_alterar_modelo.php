@@ -19,18 +19,17 @@
     }
     require './conexao.php';
 
-    $sql = "SELECT MOD_NOME,MCA_ID FROM modelo WHERE MOD_ID = $id_modelo";
+    $sql = "SELECT DISTINCT modelo.*, marca.* FROM modelo INNER JOIN marca ON modelo.MCA_ID = marca.MCA_ID WHERE MOD_ID = $id_modelo";
 
     $result = mysqli_query($con, $sql);
 
     $dados = mysqli_fetch_assoc($result);
-
+    $smarca = $dados ['MCA_NOME'];
     $modelo = $dados ['MOD_NOME'];
     
     $sqlma = "select * from marca";
     $slmarca = mysqli_query($con, $sqlma);
     $dmarca = mysqli_fetch_assoc($slmarca);
-    $smarca = $dmarca ['MCA_NOME'];
     ?>
     <div class="bloco">
         <form action="alterar_modelo.php" method="POST">

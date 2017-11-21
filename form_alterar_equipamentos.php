@@ -19,14 +19,22 @@
     }
     require './conexao.php';
 
-    $sql = "SELECT EQP_NOME,MOD_ID,AMB_ID FROM equipamentos WHERE EQP_ID = $id_equipamento";
+    $sql = "SELECT DISTINCT equipamentos.*,modelo.*, ambiente.*,marca.* FROM  equipamentos 
+            INNER JOIN modelo ON equipamentos.MOD_ID = modelo.MOD_ID
+            INNER JOIN ambiente ON equipamentos.AMB_ID = ambiente.AMB_ID
+            INNER JOIN marca ON modelo.MCA_ID = marca.MCA_ID
+            WHERE equipamentos.EQP_ID = $id_equipamento";
 
     $result = mysqli_query($con, $sql);
 
     $dados = mysqli_fetch_assoc($result);
 
     $idmodelo = $dados ['MOD_ID'];
+    $nomemodelo = $dados ['MOD_NOME'];
+    $nomemarca = $dados['MCA_NOME'];
     $equipamentos = $dados ['EQP_NOME'];
+    $nomeambiente = $dados ['AMB_NOME'];
+
     ?>
     <form action="alterar_equipamentos.php" method="POST">
         <div class="form-group">
@@ -34,15 +42,12 @@
             <div class="input-group col-sm-2">
                 <?php
                 $sqlmarcamodelo = "SELECT DISTINCT marca.*, modelo.* FROM marca INNER JOIN modelo ON marca.MCA_ID = modelo.MCA_ID ORDER BY marca.MCA_NOME";
-                $sql = mysqli_query($con, $sqlmarcamodelo);
-                $dmarcamodelo = mysqli_fetch_assoc($sql);
-                $nomemodelo = $dmarcamodelo ['MOD_NOME'];
-                $nomemarca = $dmarcamodelo['MCA_NOME'];
+                $sqli = mysqli_query($con, $sqlmarcamodelo);
                 ?>
                 <select id="doque" name="selectmodelo" required class="form-control">
                     <option value="ND"><?php echo $nomemarca; ?> - <?php echo $nomemodelo; ?></option>
                     <?php
-                    while ($dados = mysqli_fetch_assoc($sql)) {
+                    while ($dados = mysqli_fetch_assoc($sqli)) {
                         $nomemodelo = $dados ['MOD_NOME'];
                         $id = $dados['MOD_ID'];
                         $nomemarca = $dados['MCA_NOME'];
@@ -59,7 +64,6 @@
             $sqlam = "select * from ambiente";
             $resultam = mysqli_query($con, $sqlam);
             $dambient = mysqli_fetch_assoc($resultam);
-            $nomeambiente = $dambient ['AMB_NOME'];
             ?>
             <label for="marca/modelo" class="col-sm-2 control-label"> Ambiente:</label>
             <div class="input-group col-sm-2">
