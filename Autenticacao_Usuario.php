@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <div class="enviar_apagar" >
                         <div class="text-center">
-                            <input  href="Home.php" style="background-color: silver;" type="submit" value="Sing in" id="botao_submit" class="btn btn-info" >
+                            <input style="background-color: silver;" type="submit" value="Sing in" id="botao_submit" class="btn btn-info" >
                             <input style="background-color: silver;" type="reset" value="Cancel" id="botao_limpar" class="btn btn-info" >
                         </div>
                     </div>

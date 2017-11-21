@@ -1,7 +1,23 @@
 <header>
-    <?php require './inc_menu.php'; ?>
+    <?php
+    require './inc_menu.php';
+    ?>
 </header> 
 <div class="container">
+    <?php
+    $email = $_GET["email"];
+    if (empty($email)) {
+        ?>
+        <div class="alert-danger">
+            <h3>Falha ao abrir formulário de alteração</h3>
+            <h4>Para abrir está tela vá até a <a href="Autenticacao_Usuario.php">Autenticação de Usuario</a> e clique no botão Editar </h4>
+        </div>
+        <?php
+        exit;
+    }
+    ?>
+
+
     <div class="row" >
         <div class="col-sm-6 col-md-4" >
             <div class="thumbnail">

@@ -4,8 +4,8 @@
             <div class="col_1_of_4 span_1_of_4">
                 <h4>Usuario</h4>
                 <ul>
-                    <li><a href="Singin.php">Login</a></li>
-                    <li><a href="Cadastrouser.php">Cadastrar usuario</a></li>
+                    <li><a href="Autenticacao_Usuario.php">Login</a></li>
+                    <li><a href="Cadastro_Usuarios.php">Cadastrar usuario</a></li>
                 </ul>
                 <img style="max-width:27%;" src="img/facebook.png" alt=""/>
                 <img style="max-width:27%;" src="img/gmail.png" alt=""/>
