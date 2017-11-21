@@ -6,7 +6,7 @@ $nome = $_POST['equipamento'];
 $id_modelo = $_POST["selectmodelo"];
 $id_ambiente = $_POST['selectambiente'];
 
-$sql = "UPDATE equipamentos SET EQP_NOME = '$nome', MOD_ID = '$id_modelo' WHERE AMB_ID = $id_ambiente";
+$sql = "UPDATE equipamentos SET EQP_NOME = '$nome', MOD_ID = '$id_modelo', AMB_ID = $id_ambiente";
 //var_dump($sql);
 $result = mysqli_query($con, $sql);
 
