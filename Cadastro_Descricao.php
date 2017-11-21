@@ -9,7 +9,7 @@
                 excluir porém pode editar, mas não mude o fato de uma ser Ligar e outra ser Desligar
                 e não crie outras descrições com está função.</p>
             <div class="text-left">
-                    <a href="Aprender.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-left"> Voltar </span></a>
+                    <a href="Cadastro_Comandos.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-left"> Voltar </span></a>
                 </div>
         </div>
     </div>

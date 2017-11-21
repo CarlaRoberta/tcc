@@ -18,6 +18,8 @@
         $ambiente = $dados ['AMB_NOME'];
         $nomeequipamento = $dados['EQP_NOME'];
         $nomemarca = $dados['MCA_NOME'];
+        $cmddescri = $dados['CMD_DESCRI'];
+        $id = $dados['CMD_ID'];
         $nomemodelo = $dados['MOD_NOME'];
         ?>
         <div class="row" >
@@ -27,11 +29,11 @@
                         <h3><?php echo $nomeequipamento; ?></h3>
                         <p><?php echo $nomemarca; ?>-<?php echo $nomemodelo; ?></p>
                         <?php
-                        $sqlcomandos = "select * from comandos";
-                        $resultcomandos = mysqli_query($con, $sqlcomandos);
-                        $dados = mysqli_fetch_assoc($resultcomandos);
-                        $cmddescri = $dados['CMD_DESCRI'];
-                        $id = $dados['CMD_ID'];
+//                        $sqlcomandos = "select * from comandos";
+//                        $resultcomandos = mysqli_query($con, $sqlcomandos);
+//                        $dados = mysqli_fetch_assoc($resultcomandos);
+//                        $cmddescri = $dados['CMD_DESCRI'];
+//                        $id = $dados['CMD_ID'];
                         ?>
                         <div class="form-group">
                             <select id="doque" name="selectmodelo" required class="form-control">
