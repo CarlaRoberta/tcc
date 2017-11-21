@@ -8,7 +8,7 @@ $sql = "DELETE FROM modelo_comandos WHERE MCM_CODAPRENDIDO='$comando'";
 $result = mysqli_query($con, $sql);
 //var_dump($result);
 if ($result == true) {
-    require './Aprender.php';
+    require './Cadastro_Comandos.php';
 } else {
     ?> 
     <header>
@@ -26,7 +26,7 @@ if ($result == true) {
     <div class="form-group" >
         <div class="input-group col-sm-5">
             <div class="text-right">
-                <a href="Aprender.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-left"> Voltar</span>  </a>
+                <a href="Cadastro_Comandos.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-left"> Voltar</span>  </a>
             </div>
         </div>
     </div> 
