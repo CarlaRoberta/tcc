@@ -25,20 +25,20 @@
 
     $dados = mysqli_fetch_assoc($result);
 
-    $idambiente = $dados ['AMB_ID'];
     $idmodelo = $dados ['MOD_ID'];
     $equipamentos = $dados ['EQP_NOME'];
-
-    $sqlmarcamodelo = "SELECT DISTINCT marca.*, modelo.* FROM marca INNER JOIN modelo ON marca.MCA_ID = modelo.MCA_ID ORDER BY marca.MCA_NOME";
-    $sql = mysqli_query($con, $sqlmarcamodelo);
-    $dmarcamodelo = mysqli_fetch_assoc($sql);
-    $nomemodelo = $dmarcamodelo ['MOD_NOME'];
-    $nomemarca = $dmarcamodelo['MCA_NOME'];
     ?>
-    <form action="inserir_cadastroequi.php" method="POST">
+    <form action="alterar_equipamentos.php" method="POST">
         <div class="form-group">
             <label for="marca/modelo" class="col-sm-2 control-label"> Marca/Modelo:</label>
             <div class="input-group col-sm-2">
+                <?php
+                $sqlmarcamodelo = "SELECT DISTINCT marca.*, modelo.* FROM marca INNER JOIN modelo ON marca.MCA_ID = modelo.MCA_ID ORDER BY marca.MCA_NOME";
+                $sql = mysqli_query($con, $sqlmarcamodelo);
+                $dmarcamodelo = mysqli_fetch_assoc($sql);
+                $nomemodelo = $dmarcamodelo ['MOD_NOME'];
+                $nomemarca = $dmarcamodelo['MCA_NOME'];
+                ?>
                 <select id="doque" name="selectmodelo" required class="form-control">
                     <option value="ND"><?php echo $nomemarca; ?> - <?php echo $nomemodelo; ?></option>
                     <?php
@@ -58,7 +58,7 @@
             <?php
             $sqlam = "select * from ambiente";
             $resultam = mysqli_query($con, $sqlam);
-            $dambient= mysqli_fetch_assoc($resultam);
+            $dambient = mysqli_fetch_assoc($resultam);
             $nomeambiente = $dambient ['AMB_NOME'];
             ?>
             <label for="marca/modelo" class="col-sm-2 control-label"> Ambiente:</label>
