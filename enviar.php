@@ -24,10 +24,8 @@ $message = explode(",", $codaprendido);
 //var_dump($message);
 
 $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
-$cSinal = false;
-$fSinal = false;
 $foi = FALSE;
-for ($i = 0; $i <= 196; $i++) {
+for ($i = 0; $i <= 2; $i++) {
 
     socket_sendto($socket, $message[$i], 4, 0, $server_ip, $server_port);
     sleep(0.1);
@@ -35,13 +33,17 @@ for ($i = 0; $i <= 196; $i++) {
     $foi = TRUE;
 }
 if ($foi == TRUE) {
-        require './inc_menu.php'; 
-?>
+    ?>
+    <header>
+        <?php
+        require './inc_menu.php';
+        ?>
+    </header>
     <div class="container"> 
         <div class="alert alert-success" role="alert">Comando enviado com Sucesso</div> 
-        <?php require './tabelambiente.php'; ?>
+    <?php require './tabelambiente.php'; ?>
     </div>
     <?php
-require './inc_rodape.php';
+    require './inc_rodape.php';
 }
 ?>

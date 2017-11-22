@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+require 'conexao.php';
+$sql = "select * from usuario";
+$result = mysqli_query($con, $sql);
+$dados = mysqli_fetch_assoc($result);
+$email = $dados['USU_EMAIL'];
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -26,7 +33,7 @@
                     </div>
                     <div id="nav" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav"> 
-                            <li> <a href="Tela_Principal.php" >Home</a></li>
+                            <li> <a href="Tela_Principal.php?id= <?php echo $email; ?>" >Home</a></li>
                             <li> <a href="Controle.php" >Controle</a> </li>
                             <li> <a href="Cadastro_Marca.php">Cadastro</a> </li>
                             <li> <a href="Agendar.php">Agendamento</a> </li>

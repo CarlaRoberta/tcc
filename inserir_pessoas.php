@@ -13,7 +13,7 @@ $sql = "insert into usuario (USU_LOGIN, USU_EMAIL, USU_PASS) values ('$nome', '$
 $result = mysqli_query($con, $sql);
 
 if ($result == true) {
-    require 'Home.php';
+    header("Location: Tela_Principal.php?email=$email");
    
 } else {
     if (!mysqli_query($con, $sql)) {

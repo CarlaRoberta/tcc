@@ -4,8 +4,8 @@
     error_reporting(E_ALL | E_STRICT);
 
     $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
-
-    socket_bind($socket, '10.131.75.222', 8898);
+//192.168.0.160
+    socket_bind($socket, '192.168.0.160', 8898);
 
     $from = "";
     $port = 8898;
