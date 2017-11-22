@@ -13,7 +13,6 @@
                 </div>
         </div>
     </div>
-    <div class="bloco">
         <form action="inseir_cadastrocomandos.php" method="POST">
             <div class="form-group">
                 <label for="descricao" class="col-sm-2 control-label"> Descrição:</label>
@@ -30,7 +29,6 @@
                 </div>
             </div>    
         </form>
-    </div>
     <?php
     require 'conexao.php';
     $sql = "select * from comandos";

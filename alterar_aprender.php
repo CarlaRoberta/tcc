@@ -9,7 +9,7 @@ $sql = "UPDATE modelo_comandos SET MOD_ID = '$marcamodelo',CMD_ID='$comando', MC
 $result = mysqli_query($con, $sql);
 
 if ($result == true) {
-    require 'Aprender.php';
+    require 'Cadastro_Comandos.php';
    
 } else {
     if (!mysqli_query($con, $sql)) {

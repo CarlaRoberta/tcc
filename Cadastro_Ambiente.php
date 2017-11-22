@@ -3,26 +3,24 @@
 </header>
 <div class="container">
     <?php require './inc_menuLateral.php'; ?>
-    <div class="bloco">
-        <form action="inseir_cadastroambiente.php" method="POST">
-            <div class="form-group">
-                <label for="ambiente" class="col-sm-2 control-label"> Ambiente:</label>
-                <div class="input-group col-sm-5">
-                    <div class="text-right">
-                        <input type="ambiente" class="form-control" id="ambiente" name="ambiente" placeholder="Adicione um novo ambiente" required>
-                    </div>
+    <form action="inseir_cadastroambiente.php" method="POST">
+        <div class="form-group">
+            <label for="ambiente" class="col-sm-2 control-label"> Ambiente:</label>
+            <div class="input-group col-sm-5">
+                <div class="text-right">
+                    <input type="ambiente" class="form-control" id="ambiente" name="ambiente" placeholder="Adicione um novo ambiente" required>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="input-group col-sm-5">
-                    <div class="text-right">
-                        <input type="submit" value="Gravar" id="botao_submit" class="btn btn-info" >
-                        <input type="reset" value="Limpar" id="botao_limpar" class="btn btn-info" >
-                    </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group col-sm-5">
+                <div class="text-right">
+                    <input type="submit" value="Gravar" id="botao_submit" class="btn btn-info" >
+                    <input type="reset" value="Limpar" id="botao_limpar" class="btn btn-info" >
                 </div>
-            </div>    
-        </form>
-    </div>
+            </div>
+        </div>    
+    </form>
     <?php
     require 'conexao.php';
     $sql = "select * from ambiente";

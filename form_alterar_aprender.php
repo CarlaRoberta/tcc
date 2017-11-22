@@ -15,6 +15,8 @@
     $dadosm = mysqli_fetch_assoc($resultm);
     $nomemodelo = $dadosm ['MOD_NOME'];
     $nomemarca = $dadosm ['MCA_NOME'];
+    $codi = $dadosm ['MCM_CODAPRENDIDO'];
+    var_dump($codi);
     $descricao = $dadosm ['CMD_DESCRI'];
     
     $sqlmarcamodelo = "SELECT DISTINCT marca.*, modelo.* FROM marca INNER JOIN modelo ON marca.MCA_ID = modelo.MCA_ID ORDER BY marca.MCA_NOME";
@@ -25,8 +27,9 @@
         <input type="submit" name="capturar" value="Capturar Codigo do DC" class="btn btn-sm btn-warning">
     </form>
     <?php
-    if (isset($_GET["capturar"])) {
-        include 'Receber.php';
+    if (isset($_GET["capturar"])){
+        include 'Receber.php';        
+        $codi = $cmdCapturado;
     }
     ?>
     <form action="alterar_aprender.php" method="POST">
@@ -69,16 +72,17 @@
                 </select>
             </div>
             <div class="input-group col-sm-8">
-                <div class="text-right">
-                    <a href="Comandos.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-right"> </span>  </a>
+                <div  class="text-right">
+                    <a href="Cadastro_Descricao.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-right"> </span></a>
                 </div>
             </div>
         </div>
         <div class="form-group">
             <label for="" class="col-sm-3 control-label">Comandos Capturados:</label>
             <div class="input-group col-sm-5">          
-                <div class="text-right" >
-                    <textarea name="comandocapturados" type="text" id="inputHelpBlock" aria-describedby="helpBlock"  class="col-sm-12" disabled="disabled"><?php echo $l ?></textarea>
+                <div class="text-right" disabled="disabled"  > 
+                    
+                    <textarea name="comandocapturados" type="text" id="inputHelpBlock" aria-describedby="helpBlock"  class="col-sm-12" ><?php  echo $codi ?></textarea>
                 </div>
             </div>
         </div>

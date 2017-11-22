@@ -8,42 +8,39 @@
     $sqlmarca = "select * from marca";
     $slmarca = mysqli_query($con, $sqlmarca);
     ?>
-    <div class="bloco">
-        <form action="inserir_cadastromodelo.php" method="POST">        
-            <div class="form-group">
-                <label for="doque"class="col-sm-1 control-label"> Marca:</label>
-                <div class="col-sm-2">
-                    <select id="selectmarca" name="selectmarca"  class="form-control" required>
-                        <option value="">None</option>
-                        <?php
-                        while ($dados = mysqli_fetch_assoc($slmarca)) {
-                            $nome = $dados ['MCA_NOME'];
-                            $id = $dados['MCA_ID'];
-                            ?>
-                            <option value="<?php echo $id; ?>"><?php echo $nome; ?></option>
-                            <?php
-                        }
+    <form action="inserir_cadastromodelo.php" method="POST">        
+        <div class="form-group">
+            <label for="doque"class="col-sm-1 control-label"> Marca:</label>
+            <div class="col-sm-2">
+                <select id="selectmarca" name="selectmarca"  class="form-control" required>
+                    <option value="">None</option>
+                    <?php
+                    while ($dados = mysqli_fetch_assoc($slmarca)) {
+                        $nome = $dados ['MCA_NOME'];
+                        $id = $dados['MCA_ID'];
                         ?>
-
-                    </select>
-                </div>
-                <label for="modelo" class="col-sm-1 control-label"> Modelo:</label>
-                <div class="input-group col-sm-4">
-                    <div class="text-center">
-                        <input type="modelo" class="form-control" id="modelo" name="modelo" required placeholder="Adicione uma novo Modelo">
-                    </div>
+                        <option value="<?php echo $id; ?>"><?php echo $nome; ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+            </div>
+            <label for="modelo" class="col-sm-1 control-label"> Modelo:</label>
+            <div class="input-group col-sm-4">
+                <div class="text-center">
+                    <input type="modelo" class="form-control" id="modelo" name="modelo" required placeholder="Adicione uma novo Modelo">
                 </div>
             </div>
-            <div class="form-group" style="margin-left: 20%;">
-                <div class="input-group col-sm-5">
-                    <div class="text-right">
-                        <input type="submit" value="Gravar" id="botao_submit" class="btn btn-info" >
-                        <input type="reset" value="Limpar" id="botao_limpar" class="btn btn-info" >
-                    </div>
+        </div>
+        <div class="form-group" style="margin-left: 20%;">
+            <div class="input-group col-sm-5">
+                <div class="text-right">
+                    <input type="submit" value="Gravar" id="botao_submit" class="btn btn-info" >
+                    <input type="reset" value="Limpar" id="botao_limpar" class="btn btn-info" >
                 </div>
-            </div>  
-        </form>
-    </div>    
+            </div>
+        </div>  
+    </form>
     <?php
     $sql = "SELECT DISTINCT marca.*, modelo.* FROM marca INNER JOIN modelo ON marca.MCA_ID = modelo.MCA_ID ORDER BY marca.MCA_NOME";
     $result = mysqli_query($con, $sql);
@@ -90,7 +87,7 @@
     $sqlc = "SELECT modelo_comandos.*,comandos.* FROM modelo_comandos
                 INNER JOIN comandos ON modelo_comandos.CMD_ID = comandos.CMD_ID
                 ORDER BY modelo_comandos.CMD_ID";
-    $resultc= mysqli_query($con, $sqlc);
+    $resultc = mysqli_query($con, $sqlc);
     ?>
     <h1 class="text-center" style="">Comandos Capturados.</h1>
     <div class="row">
@@ -110,8 +107,8 @@
                             while ($dados = mysqli_fetch_assoc($resultc)) {
                                 $descricao = $dados['CMD_DESCRI'];
                                 $codfabri = $dados ['MCM_CODAPRENDIDO'];
-                                if($codfabri != NULL){
-                                    $msg="Codigo está gravado corretamente porém é muito grande";
+                                if ($codfabri != NULL) {
+                                    $msg = "Codigo está gravado corretamente porém é muito grande";
                                 }
                                 ?>
                                 <tr>

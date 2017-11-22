@@ -58,16 +58,16 @@
             </div>
             <div class="input-group col-sm-8">
                 <div  class="text-right">
-                    <a href="Cadastro_Descricao.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-right"> </span>  </a>
+                    <a href="Cadastro_Descricao.php" class="btn btn-sm btn-warning" > <span class="glyphicon glyphicon-hand-right"> </span></a>
                 </div>
             </div>
-           
+
         </div>
         <div class="form-group">
             <label for="" class="col-sm-3 control-label">Comandos Capturados:</label>
             <div class="input-group col-sm-5" disabled="disabled" >          
                 <div class="text-right" >
-                    <textarea name="comandocapturados" type="text" readonly="readonly" id="inputHelpBlock" aria-describedby="helpBlock"  class="col-sm-12"><?php echo $l ?></textarea>
+                    <textarea name="comandocapturados" type="text" readonly="readonly" id="inputHelpBlock" aria-describedby="helpBlock"  class="col-sm-12"><?php echo $cmdCapturado ?></textarea>
                 </div>
             </div>
         </div>

@@ -10,9 +10,11 @@
     $from = "";
     $port = 8898;
     $buf = '';
-    $l = '';
+    $cmdCapturado = '';
     while ($buf != "]") {
         socket_recvfrom($socket, $buf, 12, 0, $from, $port);
-        $l .= ',';
-        $l .= $buf;
+        $cmdCapturado .= ',';
+        $cmdCapturado .= $buf;
     }
+    //Tratar conteudo de cmdCapturado, removendo header e trailer
+    
